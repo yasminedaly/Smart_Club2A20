@@ -1,4 +1,5 @@
 #include "connection.h"
+//test GIT commit
 
 Connection::Connection()
 {
