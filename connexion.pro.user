@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.14.1, 2021-03-09T22:38:45. -->
+<!-- Written by QtCreator 4.14.1, 2021-03-10T21:36:21. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -300,7 +300,6 @@
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">C:/Users/ASUS/Desktop/Mesetudes2A/semestre2/projet/build-connexion-Desktop_Qt_5_9_9_MinGW_32bit-Debug</value>
    </valuemap>
    <value type="int" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
   </valuemap>
