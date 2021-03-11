@@ -87,30 +87,7 @@ void MainWindow::on_supprimer_joueur_clicked()
 }
 
 
-void MainWindow::on_tab_afficher_joueur_activated(const QModelIndex &index)
-{
-    QString val=ui->tab_afficher_joueur->model()->data(index).toString();
-    QSqlQuery qry;
-    qry.prepare("SELECT * from joueurs where id_joueur='"+val+"' ");
-    if(qry.exec())
-    {
-        while(qry.next())
-        {
-            ui->id_j->setText(qry.value(0).toString());
-            ui->nom_j->setText(qry.value(1).toString());
-            ui->prenom_j->setText(qry.value(2).toString());
-            ui->ville_j->setText(qry.value(3).toString());
-            ui->dn_j->setDate(qry.value(4).toDate());
-            ui->email_j->setText(qry.value(5).toString());
-            ui->tel_j->setText(qry.value(6).toString());
-            ui->classement_j->setText(qry.value(7).toString());
-            //or nom_joueur='"+val+"' or prenom_joueur='"+val+"' or ville_joueur='"+val+"' or dn_joueur='"+val+"'  or email_joueur='"+val+"' or tel_joueur='"+val+"' or classement_elo='"+val+"' "
 
-
-
-        }
-    }
-}
 
 void MainWindow::on_modifier_joueur_clicked()
 {
@@ -189,31 +166,7 @@ void MainWindow::on_ajouter_partie_clicked()
         }
 }
 
-void MainWindow::on_tab_afficher_partie_activated(const QModelIndex &index)
-{
-   QString val=ui->tab_afficher_partie->model()->data(index).toString();
-   QSqlQuery qry;
-    qry.prepare("SELECT * from parties where id_partie='"+val+"' ");
-    if(qry.exec())
-    {
-        while(qry.next())
-        {
-            ui->id_p->setText(qry.value(0).toString());
-            ui->cadence->setText(qry.value(1).toString());
-            ui->id_n->setText(qry.value(2).toString());
-            ui->id_b->setText(qry.value(3).toString());
-            ui->debut_p->setDateTime(qry.value(4).toDateTime());
-            ui->fin_p->setDateTime(qry.value(5).toDateTime());
-            ui->gagnant_p->setText(qry.value(6).toString());
-            ui->table_p->setText(qry.value(7).toString());
-            ui->com_p->setText(qry.value(8).toString());
 
-
-
-
-        }
-    }
-}
 
 void MainWindow::on_supprimer_partie_clicked()
 {
