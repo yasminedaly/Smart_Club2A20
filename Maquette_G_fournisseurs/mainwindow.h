@@ -5,6 +5,7 @@
 
 #include "fournisseurs.h"
 #include "factures.h"
+#include "produits.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -32,9 +33,17 @@ private slots:
 
     void on_pushButton_9_clicked();
 
+    void on_pushButton_29_clicked();
+
+    void on_pushButton_28_clicked();
+
+    void on_pushButton_4_clicked();
+
 private:
     Ui::MainWindow *ui;
     Fournisseurs Fotmp;
     Factures Fatmp ;
+    Produits Ptmp ;
+
 };
 #endif // MAINWINDOW_H

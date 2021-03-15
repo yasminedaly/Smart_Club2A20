@@ -147,7 +147,7 @@ void MainWindow::on_pushButton_9_clicked()
     QString Nom_Fournisseur=ui->lineEdit_NomFournisseur->text();
     QString Adresse_Fournisseur= ui->lineEdit_Adressefournisseur->text() ;
     int Telephone_Fournisseur=ui->lineEdit_telfournisseur->text().toInt();
-    QString Email_Fournisseur= ui->lineEdit_emailfournisseur->text(); ;
+    QString Email_Fournisseur= ui->lineEdit_emailfournisseur->text();
 
     Fournisseurs Fo(ID_Fournisseur , Nom_Fournisseur , Adresse_Fournisseur , Telephone_Fournisseur, Email_Fournisseur);
 
@@ -157,6 +157,75 @@ void MainWindow::on_pushButton_9_clicked()
     if(test)
     {
         ui->tableView_Fournisseur->setModel(Fotmp.afficher_Fournisseur());
+        QMessageBox::information(nullptr, QObject::tr("OK"),
+        QObject::tr("Modification effectuée .\n" "Click Cancel to exit."), QMessageBox::Cancel);
+    }
+    else
+    {
+        QMessageBox::critical(nullptr, QObject::tr("NOT OK"),
+        QObject::tr("Modification non effectuée.\n" "Click Cancel to exit."), QMessageBox::Cancel);
+    }
+}
+
+void MainWindow::on_pushButton_29_clicked()
+{
+    int ID_Produit =ui->lineEdit_idproduit->text().toInt();
+    QString Nom_Produit=ui->lineEdit_nomproduit->text();
+    int Quantite_Produit =ui->lineEdit_quantiteproduit->text().toInt();
+    float Prix_Produit=ui->lineEdit_prixproduit->text().toFloat();
+
+
+
+    Produits P(ID_Produit , Nom_Produit , Quantite_Produit , Prix_Produit);
+
+    bool test=P.ajouter_Produit();
+
+    if(test)
+    {
+        ui->tableView->setModel(Ptmp.afficher_Produit());
+        QMessageBox::information(nullptr, QObject::tr("OK"),
+        QObject::tr("Ajout effectué .\n" "Click Cancel to exit."), QMessageBox::Cancel);
+    }
+    else
+    {
+        QMessageBox::critical(nullptr, QObject::tr("NOT OK"),
+        QObject::tr("Ajout non effectué.\n" "Click Cancel to exit."), QMessageBox::Cancel);
+    }
+}
+
+void MainWindow::on_pushButton_28_clicked()
+{
+    int ID_Produit=ui->lineEdit_idproduit->text().toInt();
+    bool test=Ptmp.supprimer_Produit(ID_Produit);
+    if(test)
+    {
+        ui->tableView->setModel(Ptmp.afficher_Produit());
+        QMessageBox::information(nullptr, QObject::tr("OK"),
+        QObject::tr("Suppression effectuée .\n" "Click Cancel to exit."), QMessageBox::Cancel);
+    }
+    else
+    {
+        QMessageBox::critical(nullptr, QObject::tr("NOT OK"),
+        QObject::tr("Suppression non effectuée.\n" "Click Cancel to exit."), QMessageBox::Cancel);
+    }
+}
+
+void MainWindow::on_pushButton_4_clicked()
+{
+    int ID_Produit =ui->lineEdit_idproduit->text().toInt();
+    QString Nom_Produit=ui->lineEdit_nomproduit->text();
+    int Quantite_Produit =ui->lineEdit_quantiteproduit->text().toInt();
+    float Prix_Produit=ui->lineEdit_prixproduit->text().toFloat();
+
+
+    Produits P(ID_Produit , Nom_Produit , Quantite_Produit , Prix_Produit);
+
+
+    bool test=P.modifier_Produit(ID_Produit , Nom_Produit , Quantite_Produit , Prix_Produit );
+
+    if(test)
+    {
+        ui->tableView->setModel(Ptmp.afficher_Produit());
         QMessageBox::information(nullptr, QObject::tr("OK"),
         QObject::tr("Modification effectuée .\n" "Click Cancel to exit."), QMessageBox::Cancel);
     }

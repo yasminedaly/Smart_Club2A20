@@ -22,13 +22,15 @@ SOURCES += \
     factures.cpp \
     fournisseurs.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    produits.cpp
 
 HEADERS += \
     connection.h \
     factures.h \
     fournisseurs.h \
-    mainwindow.h
+    mainwindow.h \
+    produits.h
 
 FORMS += \
     mainwindow.ui
