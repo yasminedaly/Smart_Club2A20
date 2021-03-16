@@ -52,6 +52,14 @@ private slots:
 
     void on_Liv_modifier_clicked();
 
+
+
+    void on_pushButton_rch_livre_clicked();
+
+    void on_tri_commande_clicked();
+
+    void on_pushButton_tri_livre_clicked();
+
 private:
    Ui::MainWindow *ui;
     commande  Etmp ;

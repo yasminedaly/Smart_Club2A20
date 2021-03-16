@@ -132,3 +132,32 @@ bool Bibliotheques::ajouter_livre()
 
 
        }
+    bool Bibliotheques::rechercher_livre(int id_lA)
+    {
+        QSqlQuery query;
+         QString res=QString::number(id_lA);
+
+    query.prepare("SELECT id_l FROM BIBLIOTHEQUE WHERE id_l=:id_lA ");
+    query.bindValue(":id_l", res);
+
+    return   query.exec();
+    }
+
+
+    QSqlQueryModel * Bibliotheques::tri_livre()
+    {
+        QSqlQueryModel * model= new QSqlQueryModel();
+        model->setQuery("select * from Bibliotheque order by id_l asc;");
+
+        model->setHeaderData(0, Qt::Horizontal,QObject::tr ("id_l"));
+        model->setHeaderData(1, Qt::Horizontal,QObject::tr ("nom_l"));
+
+        model->setHeaderData(2, Qt::Horizontal,QObject::tr ("Ref_livre"));
+        model->setHeaderData(3, Qt::Horizontal, QObject::tr ("desc_l"));
+        model->setHeaderData(4, Qt::Horizontal, QObject::tr ("date_s"));
+        model->setHeaderData(5, Qt::Horizontal, QObject::tr ("date_r"));
+        model->setHeaderData(6, Qt::Horizontal, QObject::tr ("displ"));
+        model->setHeaderData(7, Qt::Horizontal, QObject::tr ("displ1"));
+
+            return model;
+    }

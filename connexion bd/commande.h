@@ -31,6 +31,7 @@ public:
 
   bool ajouter () ;
   QSqlQueryModel* afficher ();
+  QSqlQueryModel * tri() ;
   //QSqlQueryModel * recherche(int id_commandeA);
 
 

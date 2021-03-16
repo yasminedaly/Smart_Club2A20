@@ -50,6 +50,8 @@ public:
     QSqlQueryModel* afficher_livre ();
     bool supprimer_livre (int);
     bool modifier_livre (int ,QString , QString  , QString ,QString ,QString ,QString ,QString ) ;
+    bool rechercher_livre (int);
+    QSqlQueryModel * tri_livre () ;
 
 
 

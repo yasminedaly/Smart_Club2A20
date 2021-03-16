@@ -119,4 +119,17 @@ bool commande::ajouter ()
  }
 
 
+ QSqlQueryModel * commande::tri()
+ {
+     QSqlQueryModel * model= new QSqlQueryModel();
+     model->setQuery("select * from commande order by id_commande asc;");
+     model->setHeaderData(0, Qt::Horizontal,QObject::tr ("id_commande"));
+
+    model->setHeaderData(1, Qt::Horizontal,QObject::tr ("nb_produit"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr ("Prix_t"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr ("Date_commande"));
+         return model;
+ }
+
+
 

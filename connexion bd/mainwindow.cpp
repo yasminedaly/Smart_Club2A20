@@ -168,6 +168,8 @@ void MainWindow::on_pushButton_rch_clicked()
                 erreur->play() ;
                 model->setQuery(*qeury);
                 ui->tableView_2->setModel(model) ;
+                ui->tableView_2->setModel(Etmp.afficher());//refresh
+
 
         }
         else
@@ -295,3 +297,53 @@ void MainWindow::on_Liv_modifier_clicked()
 }
 
 
+
+
+
+void MainWindow::on_pushButton_rch_livre_clicked()
+{
+
+
+    int id_lAA=ui->rch_livre->text().toInt();
+
+        QSqlQueryModel * model= new QSqlQueryModel();
+        QSqlQuery* qeury=new QSqlQuery();
+        qeury->prepare("SELECT * from BIBLIOTHEQUE where id_l=:id_lAA");
+        qeury->bindValue(":id_lAA",id_lAA);
+
+
+
+        qeury->exec();
+        if(qeury->next())
+        {
+            erreur->setMedia(QUrl("C:/Users/khaled/Desktop/QT test/qt+oracle/connexion bd/sounds/compteexiste.mp3")) ;
+                erreur->setVolume(100) ;
+                erreur->play() ;
+                model->setQuery(*qeury);
+                ui->tableView_bib->setModel(model) ;
+                ui->tableView_bib->setModel(Etmpb.afficher_livre());
+
+        }
+        else
+        {
+            erreur->setMedia(QUrl("C:/Users/khaled/Desktop/QT test/qt+oracle/connexion bd/sounds/comptenot.mp3")) ;
+                erreur->setVolume(100) ;
+                erreur->play() ;
+        }
+}
+
+void MainWindow::on_tri_commande_clicked()
+
+    {
+    ui->tableView_2->setModel(Etmp.tri());
+      ui->tableView_2->setModel(Etmp.tri());//refresh
+
+    }
+
+void MainWindow::on_pushButton_tri_livre_clicked()
+
+    {
+    ui->tableView_bib->setModel(Etmpb.tri_livre());
+      ui->tableView_bib->setModel(Etmpb.tri_livre());
+
+    }

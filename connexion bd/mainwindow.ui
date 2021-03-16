@@ -226,6 +226,19 @@
        </rect>
       </property>
      </widget>
+     <widget class="QPushButton" name="tri_commande">
+      <property name="geometry">
+       <rect>
+        <x>420</x>
+        <y>20</y>
+        <width>31</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Tri</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
@@ -263,7 +276,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="pushButton_rch_livre">
       <property name="geometry">
        <rect>
         <x>910</x>
@@ -505,7 +518,7 @@
        </property>
       </widget>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_4">
+     <widget class="QLineEdit" name="rch_livre">
       <property name="geometry">
        <rect>
         <x>1010</x>
@@ -513,6 +526,19 @@
         <width>113</width>
         <height>20</height>
        </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_tri_livre">
+      <property name="geometry">
+       <rect>
+        <x>850</x>
+        <y>10</y>
+        <width>31</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Tri</string>
       </property>
      </widget>
     </widget>
