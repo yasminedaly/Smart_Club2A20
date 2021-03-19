@@ -235,3 +235,5 @@ void MainWindow::on_pushButton_4_clicked()
         QObject::tr("Modification non effectuée.\n" "Click Cancel to exit."), QMessageBox::Cancel);
     }
 }
+
+

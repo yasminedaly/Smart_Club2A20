@@ -1,0 +1,53 @@
+#ifndef G_FOURNISSEURS_H
+#define G_FOURNISSEURS_H
+
+#include <QMainWindow>
+#include "fournisseurs.h"
+#include "factures.h"
+#include "produits.h"
+
+
+QT_BEGIN_NAMESPACE
+namespace Ui { class G_Fournisseurs; }
+QT_END_NAMESPACE
+
+
+class G_Fournisseurs : public QMainWindow
+{
+    Q_OBJECT
+
+public:
+    G_Fournisseurs(QWidget *parent = nullptr);
+    ~G_Fournisseurs();
+
+private slots:
+    void on_ajouter_fournisseur__clicked();
+
+    void on_supprimer_fournisseur__clicked();
+
+    void on_modifier_fournisseur__clicked();
+
+    void on_pushButton_ajouterfacture_clicked();
+
+    void on_pushButton_2_clicked();
+
+    void on_supprimer_facture_clicked();
+
+    void on_pushButton_29_clicked();
+
+    void on_modifier_facture_clicked();
+
+    void on_supprimer_facture_2_clicked();
+
+
+
+
+private:
+    Ui::G_Fournisseurs *ui;
+
+    Fournisseurs Fotmp;
+    Factures Fatmp ;
+    Produits Ptmp ;
+
+};
+#endif // G_FOURNISSEURS_H

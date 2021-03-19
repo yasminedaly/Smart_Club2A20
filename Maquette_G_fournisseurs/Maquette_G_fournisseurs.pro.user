@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.11.0, 2021-03-11T09:02:43. -->
+<!-- Written by QtCreator 4.11.0, 2021-03-16T14:22:59. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -287,9 +287,8 @@
     </valuelist>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Maquette_G_fournisseurs2</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Users/lenovo/Desktop/Maquette_G_fournisseurs/Maquette_G_fournisseurs/Maquette_G_fournisseurs.pro</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/lenovo/Desktop/Maquette_G_fournisseurs/Maquette_G_fournisseurs/Maquette_G_fournisseurs.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:E:/BUREAU/STUDIES/2TIC/2SEM/QT/ChessMate/Maquette_G_fournisseurs/Maquette_G_fournisseurs.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">E:/BUREAU/STUDIES/2TIC/2SEM/QT/ChessMate/Maquette_G_fournisseurs/Maquette_G_fournisseurs.pro</value>
     <value type="QString" key="RunConfiguration.Arguments"></value>
     <value type="bool" key="RunConfiguration.Arguments.multi">false</value>
     <value type="QString" key="RunConfiguration.OverrideDebuggerStartup"></value>

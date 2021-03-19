@@ -30,7 +30,7 @@
      <string notr="true"/>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="tab_3">
      <attribute name="title">
@@ -283,20 +283,7 @@ background-color: rgb(255, 255, 255);</string>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">QPushButton {
-background-position:  center;
-background-color:transparent;
-border: 1px solid white;
-color:rgb(238, 238, 238);
-background-color:#25283b;
-}
-
-QPushButton:hover {
-background-color:transparent;
-	background-color: rgb(255, 255, 255);
-	color: rgb(0, 0, 0);
-border: 1px solid #6860f5;
-}</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>Excel</string>
