@@ -57,7 +57,6 @@ float Produits::Get_Prix_Produit()
 }
 
 
-
 bool Produits::ajouter_Produit()
 {
     QSqlQuery query ;
@@ -84,8 +83,8 @@ QSqlQueryModel * Produits::afficher_Produit()
     model->setQuery("select * from produits") ;
     model->setHeaderData(0,Qt::Horizontal,QObject::tr("ID_Produit"));
     model->setHeaderData(1,Qt::Horizontal,QObject::tr("Nom_Produit"));
-    model->setHeaderData(0,Qt::Horizontal,QObject::tr("Quantite_Produit"));
-    model->setHeaderData(0,Qt::Horizontal,QObject::tr("Prix_Produit"));
+    model->setHeaderData(2,Qt::Horizontal,QObject::tr("Quantite_Produit"));
+    model->setHeaderData(3,Qt::Horizontal,QObject::tr("Prix_Produit"));
 
     return model ;
 }
@@ -120,5 +119,8 @@ bool Produits::modifier_Produit(int ID_Produit, QString Nom_Produit, int Quantit
 
     return query.exec();
 }
+
+
+
 
 

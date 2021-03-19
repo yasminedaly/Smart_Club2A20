@@ -65,6 +65,7 @@ QString Fournisseurs::Get_Email_Fournisseur()
     return Email_Fournisseur;
 }
 
+
 bool Fournisseurs::ajouter_Fournisseur()
 {
     QSqlQuery query ;
@@ -115,8 +116,7 @@ bool Fournisseurs::modifier_Fournisseur(int ID_Fournisseur , QString Nom_Fournis
 
 
 
-
-    query.prepare("UPDATE fournisseurs SET ID_Fournisseur='"+res+"' , Nom_Fournisseur='"+Nom_Fournisseur+"' , Adresse_Fournisseur='"+Adresse_Fournisseur+"' , Telephone_Fournisseur ='"+res2+"', Email_Fournisseur ='"+Email_Fournisseur+"' where ID_Fournisseur=:ID_Fournisseur") ;
+    query.prepare("UPDATE fournisseurs SET Nom_Fournisseur='"+Nom_Fournisseur+"' , Adresse_Fournisseur='"+Adresse_Fournisseur+"' , Telephone_Fournisseur ='"+res2+"', Email_Fournisseur ='"+Email_Fournisseur+"' where ID_Fournisseur=:ID_Fournisseur") ;
 
     query.bindValue(":ID_Fournisseur",res);
     query.bindValue(":Nom_Fournisseur",Nom_Fournisseur);
@@ -126,4 +126,3 @@ bool Fournisseurs::modifier_Fournisseur(int ID_Fournisseur , QString Nom_Fournis
 
     return query.exec();
 }
-

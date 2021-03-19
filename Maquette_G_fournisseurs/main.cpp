@@ -2,14 +2,21 @@
 
 #include <QApplication>
 
-#include <QMessageBox>
+#include "fournisseurs.h"
+#include "factures.h"
+#include "produits.h"
 #include "connection.h"
+
 #include <QDebug>
+#include <QMessageBox>
+
+
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     MainWindow w;
+
     Connection c;
     bool test=c.createconnect();
     if(test)
@@ -26,3 +33,4 @@ int main(int argc, char *argv[])
     w.show();
     return a.exec();
 }
+

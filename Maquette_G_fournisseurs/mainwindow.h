@@ -20,31 +20,33 @@ public:
     ~MainWindow();
 
 private slots:
+    void on_ajouter_fournisseur__clicked();
+
+    void on_supprimer_fournisseur__clicked();
+
+    void on_modifier_fournisseur__clicked();
 
     void on_pushButton_ajouterfacture_clicked();
 
-    void on_pushButton_23_clicked();
-
     void on_pushButton_2_clicked();
 
-    void on_pushButton_ajouterfournisseur_clicked();
-
-    void on_pushButton_30_clicked();
-
-    void on_pushButton_9_clicked();
+    void on_supprimer_facture_clicked();
 
     void on_pushButton_29_clicked();
 
-    void on_pushButton_28_clicked();
+    void on_modifier_facture_clicked();
 
-    void on_pushButton_4_clicked();
+    void on_supprimer_facture_2_clicked();
+
+
 
 
 private:
     Ui::MainWindow *ui;
+
     Fournisseurs Fotmp;
     Factures Fatmp ;
     Produits Ptmp ;
 
 };
-#endif // MAINWINDOW_H
+#endif

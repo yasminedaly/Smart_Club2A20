@@ -11,4 +11,4 @@ public:
     bool createconnect();
 };
 
-#endif // CONNECTION_H
+#endif

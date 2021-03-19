@@ -9,6 +9,8 @@ class Produits
 public :
     Produits();
     Produits(int , QString , int , float);
+
+
     void Set_iD_Produit(int ID_Produit);
     void Set_Nom_Produit(QString Nom_Produit);
     void Set_Quantite_Produit(int Quantite_Produit);
