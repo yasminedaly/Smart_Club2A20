@@ -19,6 +19,7 @@ public:
     void Set_Email_Fournisseur(QString Email_Fournisseur);
 
 
+
     int Get_ID_Fournisseur() ;
     QString Get_Nom_Fournisseur() ;
     QString Get_Adresse_Fournisseur() ;

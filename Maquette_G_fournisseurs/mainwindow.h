@@ -20,6 +20,7 @@ public:
     ~MainWindow();
 
 private slots:
+
     void on_ajouter_fournisseur__clicked();
 
     void on_supprimer_fournisseur__clicked();

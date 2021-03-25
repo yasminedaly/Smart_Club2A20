@@ -4,6 +4,7 @@
 #include <QSqlQuery>
 #include <QSqlQueryModel>
 
+
 class Produits
 {
 public :

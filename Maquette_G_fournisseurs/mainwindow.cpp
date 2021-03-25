@@ -21,6 +21,7 @@ MainWindow::~MainWindow()
 }
 
 
+
 void MainWindow::on_pushButton_ajouterfacture_clicked()
 {
     int ID_Facture =ui->lineEdit_Idfactureajouter->text().toInt();

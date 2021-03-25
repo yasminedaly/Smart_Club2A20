@@ -25,6 +25,7 @@ void Produits::Set_Nom_Produit(QString Nom_Produit)
     this-> Nom_Produit = Nom_Produit ;
 }
 
+
 void Produits::Set_Quantite_Produit(int Quantite_Produit)
 {
     this-> Quantite_Produit = Quantite_Produit ;

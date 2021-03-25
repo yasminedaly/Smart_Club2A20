@@ -14,6 +14,7 @@ Fournisseurs::Fournisseurs()
 
 }
 
+
 void Fournisseurs::Set_ID_Fournisseur(int ID_Fournisseur)
 {
     this->ID_Fournisseur=ID_Fournisseur;

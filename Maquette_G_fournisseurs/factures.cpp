@@ -19,6 +19,7 @@ Factures::Factures(int ID_Facture,int ID_Fournisseur_Facture,float Total_Facture
 
 }
 
+
 void Factures::Set_ID_Facture(int ID_Facture)
 {
     this->ID_Facture=ID_Facture;
