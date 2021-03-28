@@ -33,6 +33,8 @@ public:
     bool verifint(int);
     bool supprimer_joueur(int);
     bool modifier_joueur();
+    QSqlQueryModel* chercher_joueur(int,QString);
+    QSqlQueryModel* trier_joueur(int);
 
 
 private:
