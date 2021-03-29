@@ -73,7 +73,7 @@ QTabBar::tab:selected {
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>721</width>
+        <width>751</width>
         <height>521</height>
        </rect>
       </property>
@@ -1386,7 +1386,7 @@ font: bold, &quot;Comic Sans MS&quot;;</string>
        <widget class="QCalendarWidget" name="calendarWidget">
         <property name="geometry">
          <rect>
-          <x>300</x>
+          <x>310</x>
           <y>100</y>
           <width>401</width>
           <height>271</height>

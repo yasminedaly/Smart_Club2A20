@@ -5,17 +5,21 @@
 #include <QMessageBox>
 #include <QDebug>
 #include <QIntValidator>
+#include <QPixmap>
 
 
 Abonnes::Abonnes(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::Abonnes)
 {
+
     ui->setupUi(this);
   ui->le_cin->setValidator(new QIntValidator(0, 99999999, this));
   ui->le_num->setValidator(new QIntValidator(0, 99999999, this));
   ui->show_abonnes->setModel(S.afficher());
    ui->show_seances->setModel(A.afficher_S());
+   QPixmap pix("C:/Users/21650/Desktop/H/9raya/QT/profil_pic.JPG");
+   ui->Profil_pic->setPixmap(pix);
 
  }
 
