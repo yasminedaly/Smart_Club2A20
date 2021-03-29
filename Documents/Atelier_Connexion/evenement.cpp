@@ -1,17 +1,13 @@
 #include "evenement.h"
 #include <QSqlQuery>
 #include <QtDebug>
-//#include <QSqlQueryModel>
+#include <QSqlQueryModel>
 #include <QObject>
+#include<QVariant>
 
 Evenement::Evenement()
-{
-/*id=0;
-nom=" ";
-prenom="";*/
-
-}
-Evenement::Evenement (int id , QString nom, QString adresse , int num , int nb , QString date)
+{}
+Evenement::Evenement (int id , QString nom, QString adresse , int num , int nb , QDate date)
     {
     this->id=id ;
     this->nom=nom ;
@@ -44,40 +40,7 @@ bool Evenement::ajouter ()
      return query.exec();
 
 }
-//yassmine
 
-/*bool EVENEMENT::verifierid(int id)
-{  QSqlQuery  query;
-    bool test=false;
-      QString res=QString::number(id);
-        query.prepare("SELECT * from joueurs where id=:id");
-         query.bindValue(":id",res);
-    if(query.exec()&&query.next())
-    {     test=true;
-         return test;
-    }
-    return test;
-}
-
-bool EVENEMENT::verifvidestring(QString S)
-{
-    bool test=true;
-        if(S.length()==0)
-         {  test=false;
-            return test;}
-        return test;
-}
-
-bool EVENEMENT ::verifint(int S)
-{
-    bool test=true;
-        if(S==0)
-         {  test=false;
-            return test;}
-        return test;
-
-} */
-// fin yassmine
  bool Evenement::supprimer(int id)
     {
 
@@ -115,7 +78,7 @@ bool EVENEMENT ::verifint(int S)
 
 
 
- bool Evenement::modifier (int id , QString nom, QString adresse , int num , int nb , QString date)
+ bool Evenement::modifier (int id , QString nom, QString adresse , int num , int nb , QDate date)
      {
 
 
@@ -124,9 +87,7 @@ bool EVENEMENT ::verifint(int S)
 
     QString res=QString::number(id);
      QSqlQuery query;
-   // query.prepare ( " UPDATE  Evenement SET  nom =(?),adresse=(?),num=(?),nb =(?), date_event=(?) WHERE id =(?) " );
-
-     query.prepare(" UPDATE  Evenement SET  nom =:nom,adresse=:adresse,num=:num,nb =:nb, date_event=:date  WHERE id =: id " );
+     query.prepare(" UPDATE  Evenement SET nom =:nom,adresse=:adresse,num=:num,nb=:nb, date_event=:date  WHERE id =:id " );
 
      query.bindValue(":id", res );
      query.bindValue(":nom", nom);
@@ -138,7 +99,6 @@ bool EVENEMENT ::verifint(int S)
       return query.exec();
 
  }
-// query.prepare ( " UPDATE  Evenement SET  nom =(?),adresse=(?),num=(?),nb =(?), date_event=(?) WHERE id =(?) " );
 
  QSqlQueryModel * Evenement::recherche(const QString &aux)
  {
@@ -159,7 +119,7 @@ bool EVENEMENT ::verifint(int S)
 
      QSqlQueryModel * model= new QSqlQueryModel();
 
-     model->setQuery("select * from Evenement order by ID");
+     model->setQuery("select * from Evenement order by ID ASC");
      model->setHeaderData(0, Qt::Horizontal,QObject::tr ("ID"));
 
      model->setHeaderData(1, Qt::Horizontal,QObject::tr ("nom"));
@@ -171,3 +131,39 @@ bool EVENEMENT ::verifint(int S)
          return model;
      }
 
+ Evenement Evenement::getEvenement(int id){
+     QString res=QString::number(id);
+      QSqlQuery query;
+      query.prepare("select * from evenement  WHERE id=:id");
+
+      query.bindValue(":id", res );
+
+      query.exec();
+      Evenement e;
+
+      while(query.next()){
+          qDebug()<< query.value(1).toInt();
+        e.setid(query.value(0).toInt());
+        e.setnom(query.value(1).toString());
+        e.setadresse(query.value(2).toString());
+        e.setnum(query.value(3).toInt());
+        e.setnb(query.value(4).toInt());
+        e.setdate(query.value(5).toDate());
+      }
+
+
+      return e;
+
+ }
+
+ QStringList Evenement::listeEvents(){
+     QSqlQuery query;
+     query.prepare("select id from evenement");
+     query.exec();
+     QStringList list;
+     while(query.next()){
+         list.append(query.value(0).toString());
+     }
+
+     return list;
+ }

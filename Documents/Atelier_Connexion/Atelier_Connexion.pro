@@ -2,9 +2,9 @@
 #
 # Project created by QtCreator 2018-10-26T21:45:23
 #
-#-------------------------------------------------
+#----------------------Yosra---------------------------
 
-QT       += core gui sql
+QT       += core gui sql printsupport charts network multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -25,20 +25,32 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    accueil.cpp \
     evenement.cpp \
         main.cpp \
         mainwindow.cpp \
     connection.cpp \
+    notification.cpp \
+    smtp.cpp \
+    stats.cpp \
+    tableprinter.cpp \
     ticket.cpp
 
 HEADERS += \
+    accueil.h \
     evenement.h \
         mainwindow.h \
     connection.h \
+    notification.h \
+    smtp.h \
+    stats.h \
+    tableprinter.h \
     ticket.h
 
 FORMS += \
-        mainwindow.ui
+        accueil.ui \
+        mainwindow.ui \
+        stats.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -47,3 +59,19 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     ressource.qrc
+
+DISTFILES += \
+    img/Nuit-de-leau.jpg \
+    img/fichier-pdf.png \
+    img/frensh.png \
+    img/imprimer.png \
+    img/logo.jpg \
+    img/logooo.png \
+    img/new_account.png \
+    img/pdf.png \
+    img/recherche.jpg \
+    img/sup.png \
+    img/supprimer.png \
+    img/téléchargement.png \
+    sond/Click button.wav \
+    sond/Click button.wav

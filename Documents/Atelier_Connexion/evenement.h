@@ -4,45 +4,45 @@
 #include <QString>
 #include <QSqlQuery>
 #include <QSqlQueryModel>
+#include<QDate>
 
-
+// Yosra
 
 class Evenement
 {
     int id , nb , num;
-    QString nom , adresse  , date;
+    QString nom , adresse  ;
+    QDate date;
 
 public:
     Evenement() ;
-   Evenement(int,QString,QString,int,int,QString);
+   Evenement(int,QString,QString,int,int,QDate);
     int getid () {return id;}
     QString getnom() {return nom;}
     QString getadresse() {return adresse;}
       int getnum () {return num;}
         int getnb () {return nb;}
-        QString getdate() {return date;}
+        QDate getdate() {return date;}
     void setid (int id){this->id=id;}
     void setnom (QString nom){this->nom=nom;}
-    void setprenom (QString adresse) {this->adresse=adresse ;}
+    void setadresse (QString adresse) {this->adresse=adresse ;}
     void setnum (int num){this->num=num;}
     void setnb (int nb){this->nb=nb;}
-    void setdate (QString date){this->date=date;}
+    void setdate (QDate date){this->date=date;}
+
 
   bool ajouter () ;
   QSqlQueryModel* afficher ();
-  /*
-    bool verifierid(int id);
-    bool verifvidestring(QString S);
-    bool verifint(int S);
-    */
+
   bool supprimer (int id);
-  //bool  modifier(int id , QString nom, QString adresse , int num , int nb , QString date);
-  bool modifier(int,QString,QString,int,int,QString);
+  bool modifier(int,QString,QString,int,int,QDate);
 
 
   QSqlQueryModel * recherche (const QString & aux);
 
   QSqlQueryModel * afficher_trie();
+  Evenement getEvenement(int);
+  QStringList listeEvents();
 
 
 

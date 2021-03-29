@@ -1,5 +1,25 @@
 <RCC>
     <qresource prefix="/new/prefix1">
         <file>img/Nuit-de-leau.jpg</file>
+        <file>img/sup.png</file>
+        <file>img/imprimer.png</file>
+        <file>img/recherche.jpg</file>
+        <file>sond/Click button.wav</file>
+        <file>sond/button.mp3</file>
+        <file>sond/632.wav</file>
+        <file>img/echec.jpg</file>
+        <file>img/fichier-pdf.png</file>
+        <file>img/frensh.png</file>
+        <file>img/logo.jpg</file>
+        <file>img/new_account.png</file>
+        <file>img/pdf.png</file>
+        <file>img/supprimer.png</file>
+        <file>img/téléchargement.png</file>
+        <file>img/logooo.png</file>
+        <file>img/chess.jpg</file>
+        <file>img/chess.png</file>
+        <file>img/endgames.png</file>
+        <file>img/echecccccc.png</file>
     </qresource>
+    <qresource prefix="/prefix_2"/>
 </RCC>
