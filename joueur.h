@@ -36,7 +36,6 @@ public:
     QSqlQueryModel* chercher_joueur(int,QString);
     QSqlQueryModel* trier_joueur(int);
 
-
 private:
     int id_joueur;
     QString nom_joueur;

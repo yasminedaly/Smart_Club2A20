@@ -158,3 +158,80 @@ bool Partie ::modifier_partie()
    return query.exec();
 
 }
+
+QSqlQueryModel* Partie::chercher_partie(int index,QString text)
+{
+QSqlQuery query;
+    QSqlQueryModel* model=new QSqlQueryModel();
+    if(index==0)
+   { query.prepare("SELECT * FROM parties where id_partie like '"+text+"'");
+     query.exec();
+     model->setQuery(query);
+     model->setHeaderData(0, Qt::Horizontal, QObject::tr("Id"));
+     model->setHeaderData(1, Qt::Horizontal, QObject::tr("Cadence"));
+     model->setHeaderData(2, Qt::Horizontal, QObject::tr("Joueur noir"));
+     model->setHeaderData(3, Qt::Horizontal, QObject::tr("Joueur blanc"));
+     model->setHeaderData(4, Qt::Horizontal, QObject::tr("Heure de début"));
+     model->setHeaderData(5, Qt::Horizontal, QObject::tr("Heure de fin"));
+     model->setHeaderData(6, Qt::Horizontal, QObject::tr("Gagnant"));
+     model->setHeaderData(7, Qt::Horizontal, QObject::tr("Num table"));
+     model->setHeaderData(8, Qt::Horizontal, QObject::tr("Commentaire"));
+     }
+   if(index==1)
+      {
+       query.prepare("SELECT * FROM parties where cadence like '"+text+"'");
+           query.exec();
+           model->setHeaderData(0, Qt::Horizontal, QObject::tr("Id"));
+           model->setHeaderData(1, Qt::Horizontal, QObject::tr("Cadence"));
+           model->setHeaderData(2, Qt::Horizontal, QObject::tr("Joueur noir"));
+           model->setHeaderData(3, Qt::Horizontal, QObject::tr("Joueur blanc"));
+           model->setHeaderData(4, Qt::Horizontal, QObject::tr("Heure de début"));
+           model->setHeaderData(5, Qt::Horizontal, QObject::tr("Heure de fin"));
+           model->setHeaderData(6, Qt::Horizontal, QObject::tr("Gagnant"));
+           model->setHeaderData(7, Qt::Horizontal, QObject::tr("Num table"));
+           model->setHeaderData(8, Qt::Horizontal, QObject::tr("Commentaire"));
+   }
+
+
+    return model;
+
+}
+
+QSqlQueryModel* Partie::trier_partie(int index)
+{
+    QSqlQuery query;
+        QSqlQueryModel* model=new QSqlQueryModel();
+        if(index==0)
+       { query.prepare("SELECT * FROM parties ORDER BY id_partie DESC");
+         query.exec();
+         model->setQuery(query);
+         model->setHeaderData(0, Qt::Horizontal, QObject::tr("Id"));
+         model->setHeaderData(1, Qt::Horizontal, QObject::tr("Cadence"));
+         model->setHeaderData(2, Qt::Horizontal, QObject::tr("Joueur noir"));
+         model->setHeaderData(3, Qt::Horizontal, QObject::tr("Joueur blanc"));
+         model->setHeaderData(4, Qt::Horizontal, QObject::tr("Heure de début"));
+         model->setHeaderData(5, Qt::Horizontal, QObject::tr("Heure de fin"));
+         model->setHeaderData(6, Qt::Horizontal, QObject::tr("Gagnant"));
+         model->setHeaderData(7, Qt::Horizontal, QObject::tr("Num table"));
+         model->setHeaderData(8, Qt::Horizontal, QObject::tr("Commentaire"));
+        }
+
+       if(index==1)
+          {
+           query.prepare("SELECT * FROM parties ORDER BY num_table DESC");
+               query.exec();
+               model->setHeaderData(0, Qt::Horizontal, QObject::tr("Id"));
+               model->setHeaderData(1, Qt::Horizontal, QObject::tr("Cadence"));
+               model->setHeaderData(2, Qt::Horizontal, QObject::tr("Joueur noir"));
+               model->setHeaderData(3, Qt::Horizontal, QObject::tr("Joueur blanc"));
+               model->setHeaderData(4, Qt::Horizontal, QObject::tr("Heure de début"));
+               model->setHeaderData(5, Qt::Horizontal, QObject::tr("Heure de fin"));
+               model->setHeaderData(6, Qt::Horizontal, QObject::tr("Gagnant"));
+               model->setHeaderData(7, Qt::Horizontal, QObject::tr("Num table"));
+               model->setHeaderData(8, Qt::Horizontal, QObject::tr("Commentaire"));
+
+}
+        return model;
+
+    }
+

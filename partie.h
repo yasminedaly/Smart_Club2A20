@@ -36,10 +36,10 @@ public:
     QSqlQueryModel * afficher_partie();
     bool supprimer_partie(int);
     bool modifier_partie();
+    QSqlQueryModel* chercher_partie(int,QString);
+    QSqlQueryModel* trier_partie(int);
 
-   /* bool supprimer_joueur(int);
-    bool modifier_joueur();
-*/
+
 private:
     int id_partie;
     QString cadence;

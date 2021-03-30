@@ -1,4 +1,4 @@
-QT       += core gui sql printsupport
+QT       += core gui sql printsupport network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -10,16 +10,20 @@ CONFIG += c++11 console
 
 SOURCES += \
     connection.cpp \
+    historique.cpp \
     joueur.cpp \
     main.cpp \
     mainwindow.cpp \
-    partie.cpp
+    partie.cpp \
+    smtp.cpp
 
 HEADERS += \
     connection.h \
+    historique.h \
     joueur.h \
     mainwindow.h \
-    partie.h
+    partie.h \
+    smtp.h
 
 FORMS += \
     mainwindow.ui

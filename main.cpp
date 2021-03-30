@@ -2,6 +2,7 @@
 #include <QApplication>
 #include <QMessageBox>
 #include <QDebug>
+
 #include "connection.h"
 
 int main(int argc, char *argv[])
@@ -18,6 +19,8 @@ if(test)
     QMessageBox::information(nullptr,QObject::tr("database is open"),
                              QObject::tr("Connexion successfull:\n"
                                          "click ok to exit"), QMessageBox::Ok);
+    //qDebug() << qgetenv("PATH");
+
 }
 else
    {

@@ -143,3 +143,91 @@ bool Joueur ::modifier_joueur()
    return query.exec();
 
 }
+
+QSqlQueryModel* Joueur::chercher_joueur(int index,QString text)
+{
+QSqlQuery query;
+    QSqlQueryModel* model=new QSqlQueryModel();
+    if(index==0)
+   { query.prepare("SELECT * FROM joueurs where id_joueur like '"+text+"'");
+     query.exec();
+     model->setQuery(query);
+     model->setHeaderData(0, Qt::Horizontal, QObject::tr("Id"));
+     model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
+     model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prénom"));
+     model->setHeaderData(3, Qt::Horizontal, QObject::tr("Ville"));
+     model->setHeaderData(4, Qt::Horizontal, QObject::tr("Date de naissance"));
+     model->setHeaderData(5, Qt::Horizontal, QObject::tr("Email"));
+     model->setHeaderData(6, Qt::Horizontal, QObject::tr("Téléphone"));
+     model->setHeaderData(7, Qt::Horizontal, QObject::tr("Classement élo"));
+     }
+   if(index==1)
+      {
+       query.prepare("SELECT * FROM joueur where prenom_joueur like '"+text+"'");
+           query.exec();
+           model->setQuery(query);
+           model->setHeaderData(0, Qt::Horizontal, QObject::tr("Id"));
+           model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
+           model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prénom"));
+           model->setHeaderData(3, Qt::Horizontal, QObject::tr("Ville"));
+           model->setHeaderData(4, Qt::Horizontal, QObject::tr("Date de naissance"));
+           model->setHeaderData(5, Qt::Horizontal, QObject::tr("Email"));
+           model->setHeaderData(6, Qt::Horizontal, QObject::tr("Téléphone"));
+           model->setHeaderData(7, Qt::Horizontal, QObject::tr("Classement élo"));
+   }
+   if(index==2)
+      {
+       query.prepare("SELECT * FROM COMMANDE where ville like '"+text+"'");
+           query.exec();
+           model->setQuery(query);
+           model->setHeaderData(0, Qt::Horizontal, QObject::tr("Id"));
+           model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
+           model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prénom"));
+           model->setHeaderData(3, Qt::Horizontal, QObject::tr("Ville"));
+           model->setHeaderData(4, Qt::Horizontal, QObject::tr("Date de naissance"));
+           model->setHeaderData(5, Qt::Horizontal, QObject::tr("Email"));
+           model->setHeaderData(6, Qt::Horizontal, QObject::tr("Téléphone"));
+           model->setHeaderData(7, Qt::Horizontal, QObject::tr("Classement élo"));
+   }
+
+    return model;
+
+}
+
+QSqlQueryModel* Joueur::trier_joueur(int index)
+{
+    QSqlQuery query;
+        QSqlQueryModel* model=new QSqlQueryModel();
+        if(index==0)
+       { query.prepare("SELECT * FROM joueurs ORDER BY id_joueur DESC");
+         query.exec();
+         model->setQuery(query);
+         model->setHeaderData(0, Qt::Horizontal, QObject::tr("Id"));
+         model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
+         model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prénom"));
+         model->setHeaderData(3, Qt::Horizontal, QObject::tr("Ville"));
+         model->setHeaderData(4, Qt::Horizontal, QObject::tr("Date de naissance"));
+         model->setHeaderData(5, Qt::Horizontal, QObject::tr("Email"));
+         model->setHeaderData(6, Qt::Horizontal, QObject::tr("Téléphone"));
+         model->setHeaderData(7, Qt::Horizontal, QObject::tr("Classement élo"));
+        }
+
+       if(index==1)
+          {
+           query.prepare("SELECT * FROM joueurs ORDER BY classement_elo DESC");
+               query.exec();
+               model->setQuery(query);
+               model->setHeaderData(0, Qt::Horizontal, QObject::tr("Id"));
+               model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
+               model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prénom"));
+               model->setHeaderData(3, Qt::Horizontal, QObject::tr("Ville"));
+               model->setHeaderData(4, Qt::Horizontal, QObject::tr("Date de naissance"));
+               model->setHeaderData(5, Qt::Horizontal, QObject::tr("Email"));
+               model->setHeaderData(6, Qt::Horizontal, QObject::tr("Téléphone"));
+               model->setHeaderData(7, Qt::Horizontal, QObject::tr("Classement élo"));
+
+}
+        return model;
+
+    }
+
