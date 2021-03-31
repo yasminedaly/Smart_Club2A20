@@ -169,6 +169,21 @@ bool Factures::modifier_Facture(int ID_Facture ,int ID_Fournisseur_Facture ,floa
     return query.exec();
 }
 
+QSqlQueryModel * Factures::Trier()
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+    model->setQuery("select * from factures where Etat_Facture order by ID_Facture  ");
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("ID_Facture"));
+    model->setHeaderData(1,Qt::Horizontal,QObject::tr("ID_Fournisseur_Facture"));
+    model->setHeaderData(2,Qt::Horizontal,QObject::tr("Total_Facture"));
+    model->setHeaderData(3,Qt::Horizontal,QObject::tr("Nom_Produit_Facture"));
+    model->setHeaderData(4,Qt::Horizontal,QObject::tr("Date_Facture"));
+    model->setHeaderData(5,Qt::Horizontal,QObject::tr("Etat_Facture"));
+    model->setHeaderData(6,Qt::Horizontal,QObject::tr("Quantite_Facture"));
+    return  model;
+}
+
+
 
 
 

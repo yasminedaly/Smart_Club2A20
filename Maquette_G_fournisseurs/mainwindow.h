@@ -39,6 +39,9 @@ private slots:
 
     void on_supprimer_facture_2_clicked();
 
+    void on_lineEdit_6();
+    void on_pushButton_11_clicked()
+
 
 
 

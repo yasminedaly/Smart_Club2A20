@@ -127,3 +127,33 @@ bool Fournisseurs::modifier_Fournisseur(int ID_Fournisseur , QString Nom_Fournis
 
     return query.exec();
 }
+
+
+QSqlQueryModel * Fournisseurs::Recherche(QString id)
+   {
+    QSqlQueryModel * model= new QSqlQueryModel();
+
+        QString model="Select * from fournisseurs where ID_Fournisseur like '"+id+"%' ";
+
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("ID_Fournisseur"));
+    model->setHeaderData(1,Qt::Horizontal,QObject::tr("Nom_Fournisseur"));
+    model->setHeaderData(2,Qt::Horizontal,QObject::tr("Adresse_Fournisseur"));
+    model->setHeaderData(3,Qt::Horizontal,QObject::tr("Telephone_Fournisseur"));
+    model->setHeaderData(4,Qt::Horizontal,QObject::tr("Email_Fournisseur"));
+
+        return model;
+    }
+
+QSqlQueryModel * Fournisseurs::Trier()
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+
+        model->setQuery("select * from fournisseurs order by ID_Fournisseur desc");
+
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("ID_Fournisseur"));
+    model->setHeaderData(1,Qt::Horizontal,QObject::tr("Nom_Fournisseur"));
+    model->setHeaderData(2,Qt::Horizontal,QObject::tr("Adresse_Fournisseur"));
+    model->setHeaderData(3,Qt::Horizontal,QObject::tr("Telephone_Fournisseur"));
+    model->setHeaderData(4,Qt::Horizontal,QObject::tr("Email_Fournisseur"));
+    return  model;
+}

@@ -36,6 +36,9 @@ public:
     bool supprimer_Facture(int);
     QSqlQueryModel * afficher_Facture();
     bool modifier_Facture(int,int,float,int,QString,QString,int);
+    QSqlQueryModel * Trier();
+
+
 
 
 
