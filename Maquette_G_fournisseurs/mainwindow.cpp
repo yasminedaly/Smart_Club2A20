@@ -239,53 +239,13 @@ void MainWindow::on_pushButton_4_clicked()
 
 void MainWindow::on_lineEdit_6()
 {
-    ui->tableView_Fournisseur->setModel(Fotmp.Recherche(ui->lineEdit_6->text()));
-}
-
-void MainWindow::on_pushButton_11_clicked()
-{
-
-
-            QTableView *table;
-
-                            table = ui->tableView_Fournisseur;
-
-
-
-                            QAbstractItemModel *model =  table->model();
-
-                            if (file.open(QFile::WriteOnly | QFile::Truncate)) {
-
-
-
-                                QStringList strList;
-
-                                for (int i = 0; i < model->columnCount(); i++) {
-
-
-
-                                }
-
-
-                                for (int i = 0; i < model->rowCount(); i++) {
-
-
-
-                                    for (int j = 0; j < model->columnCount(); j++) {
-
-
-                                QMessageBox::information(nullptr, QObject::tr("Export excel"),
-
-                                                          QObject::tr("Export avec succes .\n"
-
-                                                                      "Click OK to exit."), QMessageBox::Ok);
-            }
+    ui->tableView_Fournisseur->setModel(Fotmp.afficher(ui->lineEdit_6->text()));
 }
 
 
 
                                 void mainwindow::on_recherche_produits()
                                 {
-                                    ui->tableView->setModel(Ptmp.Recherche_ID(ui->recherche_produits->text()));
+                                    ui->tableView->setModel(Ptmp.afficher(ui->recherche_produits->text()));
                                 }
 
