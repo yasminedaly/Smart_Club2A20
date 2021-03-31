@@ -51,4 +51,32 @@ private:
 
 };
 
+class commandeh
+{
+    int id_commande;
+    QString nom_c ;
+    QString produit_c;
+
+public:
+       commandeh () ;
+       commandeh (int,QString,QString) ;
+       int getid_commande () {return id_commande;}
+       QString get_nom_c(){return nom_c;}
+       QString get_produit_c(){return produit_c;}
+
+       void setid (int id_commande){this->id_commande=id_commande;}
+       void set_nom_c (QString nom_c) {this->nom_c=nom_c ;}
+       void set_nom_produit_c (QString produit_c) {this->produit_c=produit_c ;}
+
+
+
+
+       QSqlQueryModel * afficherhis() ;
+       bool ajoutehis();
+       bool modifierhis() ;
+private:
+
+    //QString cin,datee,fn ;
+};
+
 #endif // COMMANDE_H

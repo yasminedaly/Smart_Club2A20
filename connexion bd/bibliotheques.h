@@ -3,6 +3,8 @@
 #include <QString>
 #include <QSqlQuery>
 #include <QSqlQueryModel>
+#include <QDialog>
+#include<QLabel>
 
 
 
@@ -52,7 +54,14 @@ public:
     bool modifier_livre (int ,QString , QString  , QString ,QString ,QString ,QString ,QString ) ;
     bool rechercher_livre (int);
     QSqlQueryModel * tri_livre () ;
+    QSqlQueryModel * tri2 (QString);
 
+    QSqlQueryModel * chercher_matpar_ref(QString  Ref_livre);
+    QSqlQueryModel * chercher_matpar_nom(QString  nom_l);
+
+
+    bool controlSaisieCharVide (QString,QString);
+    bool controlsaisieRef(QString saisi);
 
 
 
