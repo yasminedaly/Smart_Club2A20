@@ -1,26 +1,26 @@
-#ifndef G_FOURNISSEURS_H
-#define G_FOURNISSEURS_H
+#ifndef MAINWINDOW_H
+#define MAINWINDOW_H
 
 #include <QMainWindow>
+
 #include "fournisseurs.h"
 #include "factures.h"
 #include "produits.h"
 
-
 QT_BEGIN_NAMESPACE
-namespace Ui { class G_Fournisseurs; }
+namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
-
-class G_Fournisseurs : public QMainWindow
+class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    G_Fournisseurs(QWidget *parent = nullptr);
-    ~G_Fournisseurs();
+    MainWindow(QWidget *parent = nullptr);
+    ~MainWindow();
 
 private slots:
+
     void on_ajouter_fournisseur__clicked();
 
     void on_supprimer_fournisseur__clicked();
@@ -29,9 +29,13 @@ private slots:
 
     void on_pushButton_ajouterfacture_clicked();
 
+    void on_tableView_Fournisseur_activated(const QModelIndex &index);
+
     void on_pushButton_2_clicked();
 
     void on_supprimer_facture_clicked();
+
+    void on_tableView_Facture_activated(const QModelIndex &index);
 
     void on_pushButton_29_clicked();
 
@@ -39,15 +43,37 @@ private slots:
 
     void on_supprimer_facture_2_clicked();
 
+    void on_tableView_activated(const QModelIndex &index);
+
+    void on_comboBox_2_activated(const QString &arg1);
+
+    void on_comboBox_activated(const QString &arg1);
+
+    void on_pushButton_11_clicked();
+
+    void on_pushButton_clicked();
+
+    void on_imprimer_clicked();
+
+    void on_recherche_produit_clicked();
+
+    void on_statistiques_factures_clicked();
+
+    //void sendMail();
+
+    //void mailSent(QString);
+
+    //void on_pushButton_3_clicked();
+
 
 
 
 private:
-    Ui::G_Fournisseurs *ui;
+    Ui::MainWindow *ui;
 
     Fournisseurs Fotmp;
     Factures Fatmp ;
     Produits Ptmp ;
 
 };
-#endif // G_FOURNISSEURS_H
+#endif

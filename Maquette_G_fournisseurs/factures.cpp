@@ -183,7 +183,21 @@ QSqlQueryModel * Factures::Trier()
     return  model;
 }
 
+QSqlQueryModel * Factures::Recherche(QString id)
+   {
+    QSqlQueryModel * model= new QSqlQueryModel();
 
+     model->setQuery("select * from factures ");
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("ID_Facture"));
+    model->setHeaderData(1,Qt::Horizontal,QObject::tr("ID_Fournisseur_Facture"));
+    model->setHeaderData(2,Qt::Horizontal,QObject::tr("Total_Facture"));
+    model->setHeaderData(3,Qt::Horizontal,QObject::tr("ID_Produit_Facture"));
+    model->setHeaderData(4,Qt::Horizontal,QObject::tr("Date_Facture"));
+    model->setHeaderData(5,Qt::Horizontal,QObject::tr("Etat_Facture"));
+    model->setHeaderData(6,Qt::Horizontal,QObject::tr("Quantite_Facture"));
+
+        return model;
+    }
 
 
 

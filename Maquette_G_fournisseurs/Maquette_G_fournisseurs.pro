@@ -1,4 +1,6 @@
-QT       += core gui sql
+QT += core gui sql charts network
+QT += multimedia
+QT += printsupport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -19,18 +21,22 @@ CONFIG += console
 
 SOURCES += \
     connection.cpp \
+    exportexcelobject.cpp \
     factures.cpp \
     fournisseurs.cpp \
     main.cpp \
     mainwindow.cpp \
-    produits.cpp
+    produits.cpp \
+    smtp.cpp
 
 HEADERS += \
     connection.h \
+    exportexcelobject.h \
     factures.h \
     fournisseurs.h \
     mainwindow.h \
-    produits.h
+    produits.h \
+    smtp.h
 
 FORMS += \
     mainwindow.ui
