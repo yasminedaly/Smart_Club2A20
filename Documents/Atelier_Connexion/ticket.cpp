@@ -139,6 +139,7 @@ query.prepare("INSERT INTO TICKET  (id_ticket, id_evenement, type_acheteur, type
 
 }
  int Ticket::calculeTicket(int id_event){
+ //bool Ticket::calculeTicket(int id_event){
      QString res=QString::number(id_event);
      QSqlQuery query;
       query.prepare("select * from Ticket  WHERE id_evenement=:id_evenement");

@@ -84,6 +84,10 @@ private slots:
     void statrefresh();
 
 
+    void on_tableView_activated(const QModelIndex &index);
+
+    void on_tableView_2_activated(const QModelIndex &index);
+
 private:
     Ui::MainWindow *ui;
     Evenement  Etmp ;

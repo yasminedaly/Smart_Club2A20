@@ -61,17 +61,6 @@ RESOURCES += \
     ressource.qrc
 
 DISTFILES += \
-    img/Nuit-de-leau.jpg \
-    img/fichier-pdf.png \
-    img/frensh.png \
-    img/imprimer.png \
-    img/logo.jpg \
-    img/logooo.png \
-    img/new_account.png \
-    img/pdf.png \
-    img/recherche.jpg \
-    img/sup.png \
-    img/supprimer.png \
     img/téléchargement.png \
     sond/Click button.wav \
     sond/Click button.wav

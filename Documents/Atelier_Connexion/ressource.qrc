@@ -20,6 +20,7 @@
         <file>img/chess.png</file>
         <file>img/endgames.png</file>
         <file>img/echecccccc.png</file>
+        <file>sond/Best and sound effects welcome intro [Mpgun.com].wav</file>
     </qresource>
     <qresource prefix="/prefix_2"/>
 </RCC>

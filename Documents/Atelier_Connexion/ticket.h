@@ -42,6 +42,7 @@ public:
   bool modifier_Ticket(int,int,QString,QString,int,QDate);
   Ticket getTicket(int);
   int calculeTicket(int);
+ // bool calculeTicket(int);
   //Ticket getTicket(int);
   QSqlQueryModel * afficher_trie();
 

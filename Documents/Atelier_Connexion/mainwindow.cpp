@@ -5,6 +5,7 @@
 #include <QSqlQuery>
 #include <QIntValidator>
 #include "ticket.h"
+#include "stats.h"
 #include <QString>
 #include <QWidget>
 #include <QPainter>
@@ -335,34 +336,21 @@ QSound::play(":/new/prefix1/sond/Click button.wav");
      int prix=ui->le_prix->text().toInt();
 
    Ticket T(id_ticket,id_evenement,type_acheteur,type,prix,QDate().currentDate()) ;
-   //Ticket T(id_ticket,id_evenement,type_acheteur,type_ticket,prix,date_achat) ;
 
     bool test=T.ajouter();
+
+    QStringList l=Etmp.listeEvents();
+   for (int i = 0; i < l.size(); ++i){
+
+       int cc=Etmpp.calculeTicket(l[i].toInt());
+   }
 
     if (test)
 
     {
         ui->tableView_2->setModel(Etmpp.afficher());
-        trayIcon = new QSystemTrayIcon(this);
-        trayIcon->setVisible(true);
-        trayIcon->setIcon(QIcon("C:/Users/DeLL/Desktop/iconn.jpg"));
-             trayIcon->setToolTip("Ajouter" "\n"
-                             "Ajouter avec sucées");
-        trayIcon->show();
 
-        /* Also connect clicking on the icon to the signal processor of this press
-         * */
-        connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)),
-                this, SLOT(iconActivated(QSystemTrayIcon::ActivationReason)));
-
-       //n.Alerte_Ajout(id,1);
-
-}
-    else
-        n.Alerte_Ajout(id,0);
-
-
-        /*QMessageBox::information(nullptr, QObject::tr("ok"),
+        QMessageBox::information(nullptr, QObject::tr("ok"),
                     QObject::tr("ajout effectué.\n"
                                 "Click Cancel to exit."), QMessageBox::Cancel);
         ui->le_adresse->setText("");
@@ -370,7 +358,7 @@ QSound::play(":/new/prefix1/sond/Click button.wav");
         ui->le_nb->setText("");
         ui->le_num->setText("");
         ui->le_date->setDate(QDate(2020,01,01));
-        ui->le_id->setText("");*/
+        ui->le_id->setText("");
 
 
 }
@@ -393,6 +381,8 @@ void MainWindow::on_supp_clicked()
 
     {
         ui->tableView_2->setModel(Etmpp.afficher());
+       // ui->statistiques->setLayout(mainLayout);
+
         QMessageBox::information(nullptr, QObject::tr("ok"),
                     QObject::tr("suppression effectuée.\n"
                                 "Click Cancel to exit."), QMessageBox::Cancel);
@@ -447,6 +437,15 @@ void MainWindow::on_Modifier_Ticket_clicked()
    Ticket T(id_ticket,id_evenement,type_acheteur,type,prix,QDate().currentDate()) ;
 
        bool test=T.modifier_Ticket (id_ticket,id_evenement,type_acheteur,type,prix,QDate().currentDate()) ;
+       QStringList l=Etmp.listeEvents();
+      for (int i = 0; i < l.size(); ++i){
+
+          int cc=Etmpp.calculeTicket(l[i].toInt());
+      }
+
+       // cc=true;
+        //cc=Etmpp.calculeTicket(l[i].toInt()));
+
 
        if(test)
        {
@@ -511,7 +510,7 @@ void MainWindow::on_le_id_2_textChanged(const QString &arg1)
 }
 
 void MainWindow::on_tabevenement_currentChanged(int index)
-{
+{QSound::play(":/new/prefix1/sond/Click button.wav");
     ui->le_id_4->clear();
     ui->le_id_4->addItems(Etmp.listeEvents());
     QStringList l1={"spectateur","joueur","abonné"};
@@ -533,7 +532,7 @@ void MainWindow::on_trier_clicked()
 }
 
 void MainWindow::on_trie_2_clicked()
-{
+{QSound::play(":/new/prefix1/sond/Click button.wav");
      ui->tableView_2->setModel(Etmpp.afficher_trie());
 }
 
@@ -581,4 +580,44 @@ void MainWindow::statrefresh(){
 void MainWindow::on_envoyer_clicked()
 {
     sendMail();
+}
+
+void MainWindow::on_tableView_activated(const QModelIndex &index)
+{
+    int val=ui->tableView->model()->data(index).toInt();
+    qDebug()<<val;
+    Evenement e;
+    e=e.getEvenement(val);
+    if(e.getid()!=0){
+        qDebug()<<e.getadresse();
+        ui->le_adresse->setText(ui->tableView->model()->data(index).toString());
+        ui->le_adresse->setText(e.getadresse());
+        ui->le_nom->setText(e.getnom());
+        ui->le_nb->setText(QString::number(e.getnb()));
+        ui->le_num->setText(QString::number(e.getnum()));
+        ui->le_date->setDate(e.getdate());
+    }
+    else{
+        ui->le_adresse->setText("");
+        ui->le_nom->setText("");
+        ui->le_nb->setText("");
+        ui->le_num->setText("");
+        ui->le_date->setDate(QDate(2020,01,01));
+    }
+}
+
+void MainWindow::on_tableView_2_activated(const QModelIndex &index)
+{
+    Ticket T;
+    T=T.getTicket(ui->tableView_2->model()->data(index).toInt());
+    if(T.getid_ticket()!=0){
+        qDebug()<<T.getid_evenement();
+
+        ui->le_prix->setText(QString::number(T.getprix()));
+
+    }
+    else{
+
+        ui->le_prix->setText("");
+    }
 }
