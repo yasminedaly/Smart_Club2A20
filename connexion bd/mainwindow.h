@@ -1,5 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
+
 #include <QMainWindow>
 #include <QtSql>
 #include <QSqlQuery>
@@ -10,6 +11,7 @@
 #include <QTimer>
 #include <QTextToSpeech>
 #include <QMediaPlayer>
+#include <QPropertyAnimation>
 
 namespace Ui {
 class MainWindow;
@@ -68,18 +70,26 @@ private slots:
 
     void on_pushButton_2_clicked();
 
+
     void on_pushButton_5_clicked();
 
     void on_recherche_clicked();
 
+    void on_Liv_ajouter2_clicked();
+
+    void showtime () ;
+
 private:
    Ui::MainWindow *ui;
+   QPropertyAnimation *animation ;
+     QPropertyAnimation *animation2 ;
     commande  Etmp ;
     commandeh Etmph ;
     Bibliotheques Etmpb ;
      QSqlQueryModel * model ;
      QMediaPlayer * erreur = new QMediaPlayer ;
      QString lng="fr";
+     QMediaPlayer *click ;
 
 
 };

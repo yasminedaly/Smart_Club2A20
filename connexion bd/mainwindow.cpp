@@ -20,6 +20,11 @@
 #include <QTextEdit>
 #include <cstdlib>
 #include <QRadioButton>
+#include <QPropertyAnimation>
+#include <QDateTime>
+#include <QTime>
+#include <QPropertyAnimation>
+
 
 
 
@@ -29,6 +34,32 @@ MainWindow::MainWindow(QWidget *parent) :
     ui ( new Ui::MainWindow)
 {
     ui->setupUi(this);
+    animation = new QPropertyAnimation (ui ->text,"geometry" );
+   // animation = new QPropertyAnimation (ui ->text_2,"geometry" );
+    animation->setDuration(10000) ;
+    animation->setStartValue(ui->text->geometry());
+    animation->setEndValue(QRect(10,40,741,101)) ;
+    animation->start() ;
+
+
+   // animation2 = new QPropertyAnimation (ui ->text,"geometry" );
+    animation2 = new QPropertyAnimation (ui ->text_2,"geometry" );
+    animation2->setDuration(10000) ;
+    animation2->setStartValue(ui->text->geometry());
+    animation2->setEndValue(QRect(10,40,741,101)) ;
+    animation2->start() ;
+
+    click = new QMediaPlayer () ;
+    click->setMedia(QUrl("C:/Users/khaled/Desktop/click_2.mp3")) ;
+
+  //  click->play() ;
+
+
+
+
+
+
+
   QPixmap pix ("C:/Users/khaled/Desktop/QT test/qt+oracle/connexion bd/gestion commande/connexion bd/back.jpg");
    QPixmap pix2 ("C:/Users/khaled/Desktop/QT test/qt+oracle/connexion bd/gestion commande/connexion bd/back.jpg");
 
@@ -38,6 +69,15 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->tableView_2->setModel(Etmp.afficher());
     ui->tableView_bib->setModel(Etmpb.afficher_livre());
 
+    /***************/
+          QTimer *timer=new QTimer(this);
+        connect(timer,SIGNAL(timeout()),this,SLOT(showtime()));
+        timer->start();
+        /*************************date*****************/
+        QDate date = QDate ::currentDate();
+        QString datee=date.toString();
+
+        ui->Date_2->setText(datee) ;
 
 }
 
@@ -52,6 +92,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pb_ajouter_clicked()
 {
+
+   click->play();
 
     int id_commande=ui->le_id->text().toInt();
 
@@ -371,7 +413,11 @@ void MainWindow::on_Historique_clicked()
 void MainWindow::on_pushButton_clicked()
 {
     QString str;
+
+     //   <img src='D:/bourguiba/ESPRIT/Second Year/Projet C++/logo.png' height='42' align='left' width='42'/>
+            str.append("<img src='C:/Users/khaled/Desktop/logo.png' width='100' height='100' align='left'  > ") ;
             str.append("<html><head></head><body><center>"+QString("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;<font size=""10"" color =""red""> GESTION DES BIBLIOTHEQUE </font><br /> <br /> "));
+           // str.append("<img src='C:/Users/khaled/Desktop/logo.png' width='100' height='100'>") ;
             str.append("<table border=1><tr>");
             str.append("<td>"+QString("  ")+"&nbsp;&nbsp;<font color =""blue""  size=""10"">ID-LIVRE</font>&nbsp;&nbsp;"+"</td>");
             str.append("<td>"+QString("&nbsp;&nbsp;<font color =""blue""  size=""10"">NOM-LIVRE </font>&nbsp;&nbsp;")+"</td>");
@@ -391,7 +437,7 @@ void MainWindow::on_pushButton_clicked()
                 str.append("&nbsp;&nbsp;<font color =""green""  size=""10"">"+query->value(1).toString()+"&nbsp;&nbsp;");
                 str.append("</td><td>");
                 str.append("&nbsp;&nbsp;<font color =""green"" size=""10"">"+query->value(2).toString()+"&nbsp;&nbsp;");
-                 str.append("</td><td>");
+                str.append("</td><td>");
                 str.append("&nbsp;&nbsp;<font color =""green"" size= ""10"">"+query->value(3).toString()+"&nbsp;&nbsp;");
                 str.append("</td><td>");
                 str.append("&nbsp;&nbsp;<font color =""green""  size=""10"">"+query->value(4).toString()+"&nbsp;&nbsp;");
@@ -430,11 +476,11 @@ void MainWindow::on_pushButton_3_clicked()
         ui->l5->setText("RELEASE DATE");
         ui->l6->setText("RECOVERY DATE");
         ui->l7->setText("AVAILABILITY");
-        ui->Liv_ajouter->setText("ADD");
+        ui->Liv_ajouter2->setText("ADD");
         ui->Liv_modifier->setText("EDIT");
         ui->liv_supprimer->setText("REMOVE");
-        ui->pushButton_rch_livre->setText("RESEARCH");
-        ui->pushButton_tri_livre->setText("SORTING");
+       // ui->pushButton_rch_livre->setText("RESEARCH");
+        //ui->pushButton_tri_livre->setText("SORTING");
         ui->oui_liv->setText("YES");
         ui->non_liv_2->setText("NO");
 
@@ -449,6 +495,8 @@ void MainWindow::on_pushButton_3_clicked()
 void MainWindow::on_pushButton_2_clicked()
 
 {
+
+    click->play();
   lng="fr";
 
   ui->l1->setText("ID LIVRE");
@@ -459,28 +507,29 @@ void MainWindow::on_pushButton_2_clicked()
   ui->l5->setText("DATE DE SORTIE");
   ui->l6->setText("DATE DE RECUPERATION");
   ui->l7->setText("DISPONIBILITE");
-  ui->Liv_ajouter->setText("ajouter");
+  ui->Liv_ajouter2->setText("ajouter");
   ui->Liv_modifier->setText("modifier");
   ui->Liv_modifier->setStyleSheet("QPushButton {border:none;background-color:#000000;background-position: left center;background-repeat: no-repeat;border-radius: 5px;border:1px solid transparent;color:rgb(255, 255, 255);text-align: center; border-left:4px solid #000000;}QPushButton:hover {background-color:rgb(0, 0, 128);}QPushButton:pressed { border:2px solid rgb(0, 0, 128); }");
   ui->liv_supprimer->setText("supprimer");
   ui->liv_supprimer->setStyleSheet("QPushButton {border:none;background-color:#000000;background-position: left center;background-repeat: no-repeat;border-radius: 5px;border:1px solid transparent;color:rgb(255, 255, 255);text-align: center; border-left:4px solid #000000;}QPushButton:hover {background-color:rgb(0, 0, 128);}QPushButton:pressed { border:2px solid rgb(0, 0, 128); }");
-  ui->pushButton_rch_livre->setText("recherche");
-  ui->pushButton_tri_livre->setText("tri");
+ // ui->pushButton_rch_livre->setText("recherche");
+//  ui->pushButton_tri_livre->setText("tri");
   ui->oui_liv->setText("oui");
 
   ui->non_liv_2->setText("non");
-   ui->Liv_ajouter->setStyleSheet("QPushButton {border:none;background-color:#000000;background-position: left center;background-repeat: no-repeat;border-radius: 5px;border:1px solid transparent;color:rgb(255, 255, 255);text-align: center; border-left:4px solid #000000;}QPushButton:hover {background-color:rgb(0, 0, 128);}QPushButton:pressed { border:2px solid rgb(0, 0, 128); }");
+   ui->Liv_ajouter2->setStyleSheet("QPushButton {border:none;background-color:#000000;background-position: left center;background-repeat: no-repeat;border-radius: 5px;border:1px solid transparent;color:rgb(255, 255, 255);text-align: center; border-left:4px solid #000000;}QPushButton:hover {background-color:rgb(0, 0, 128);}QPushButton:pressed { border:2px solid rgb(0, 0, 128); }");
 
 }
 
-void MainWindow::on_pushButton_5_clicked()
+
+/* void MainWindow::on_pushButton_5_clicked()
 {
 
         QString k=ui->comboBox_2->currentText();
 
             ui->tableView_bib->setModel(Etmpb.tri2(k));
             ui->tableView_bib->setModel(model) ;
-            ui->tableView_bib->setModel(Etmpb.afficher_livre());
+          //  ui->tableView_bib->setModel(Etmpb.afficher_livre());
 
 }
 
@@ -497,5 +546,83 @@ void MainWindow::on_recherche_clicked()
     if (k!= ""){
    ui->tableView_bib->setModel(Etmpb.chercher_matpar_ref(l) );}
 
+
+}*/
+
+void MainWindow::on_Liv_ajouter2_clicked()
+{
+
+
+
+    int id_l=ui->id_Liv->text().toInt();
+    QString nom_l=ui->nom_liv->text() ;
+    QString Ref_livre=ui->ref_liv->text() ;
+    QString desc_l=ui->desc_liv->toPlainText() ;
+    QString date_s=ui->dateS_liv->date().toString("dd / MM / yyyy ") ;
+    QString date_r=ui->dateR_liv->date().toString("dd / MM / yyyy ") ;
+    QString displ=ui->oui_liv->text()  ;
+   // QString displ1=ui->non_liv_2->text()  ;
+
+
+
+    if (ui->oui_liv->isChecked())
+
+    {
+    QString displ=ui->oui_liv->text() ;
+
+       }
+
+     QString displ1=ui->non_liv_2->text() ;
+
+      if (ui->non_liv_2->isChecked())
+      {
+         QString displ1=ui->non_liv_2->text() ;
+       }
+Bibliotheques B(id_l,nom_l,Ref_livre,desc_l,date_s,date_r,displ,displ1) ;
+bool nom_ll , Ref_livree  ;
+
+nom_ll= B.controlSaisieCharVide(nom_l,"nom_ll");
+Ref_livree=B.controlsaisieRef(Ref_livre);
+
+if((nom_ll==true)&&(Ref_livree==true))
+       {
+  //  Bibliotheques B(id_l,nom_l,Ref_livre,desc_l,date_s,date_r,displ,displ1) ;
+
+    bool test=B.ajouter_livre();
+
+
+
+    if (test)
+
+    {
+        ui->tableView_bib->setModel(Etmpb.afficher_livre());
+        QMessageBox::information(nullptr, QObject::tr("ok"),
+                    QObject::tr("ajout effectué.\n"
+                                "Click Cancel to exit."), QMessageBox::Cancel);
+
+}
+    else
+        QMessageBox::critical(nullptr, QObject::tr("not ok"),
+                    QObject::tr("ajout non effectué.\n"
+                                "Click Cancel to exit."), QMessageBox::Cancel);
+
+
+
+}
+}
+
+void MainWindow::showtime ()
+
+{
+
+    QTime time = QTime::currentTime();
+
+        QString time_text=time.toString("hh : mm : ss");
+        if((time.second() % 2) == 0 )
+        {
+            time_text[3] = ' ';
+            time_text[8] = ' ';
+        }
+        ui->digitalclock_2->setText(time_text) ;
 
 }

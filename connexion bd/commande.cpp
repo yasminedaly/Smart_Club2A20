@@ -141,6 +141,7 @@ QSqlQueryModel * commandeh::afficherhis()
 
 
   }
+
  bool commande::modifier(int id_commande,int nb_produit, float Prix_t, QString Date_commande)
  {
         QSqlQuery query;
