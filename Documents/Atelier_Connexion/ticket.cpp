@@ -158,7 +158,7 @@ query.prepare("INSERT INTO TICKET  (id_ticket, id_evenement, type_acheteur, type
 
  QSqlQueryModel *Ticket:: afficher_trie()
   {
-//
+
      QSqlQueryModel * model= new QSqlQueryModel();
 
      model->setQuery("select * from Ticket order by id_ticket ASC");
