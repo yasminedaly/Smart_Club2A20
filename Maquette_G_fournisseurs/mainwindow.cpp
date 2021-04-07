@@ -237,15 +237,15 @@ void MainWindow::on_pushButton_4_clicked()
     }
 }
 
+
 void MainWindow::on_lineEdit_6()
 {
     ui->tableView_Fournisseur->setModel(Fotmp.afficher(ui->lineEdit_6->text()));
 }
 
 
-
-                                void mainwindow::on_recherche_produits()
-                                {
-                                    ui->tableView->setModel(Ptmp.afficher(ui->recherche_produits->text()));
-                                }
+void mainwindow::on_recherche_produits()
+{
+    ui->tableView->setModel(Ptmp.afficher(ui->recherche_produits->text()));
+}
 

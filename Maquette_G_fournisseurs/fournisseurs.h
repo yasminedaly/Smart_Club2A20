@@ -31,6 +31,8 @@ public:
     bool supprimer_Fournisseur(int);
     QSqlQueryModel * afficher_Fournisseur();
     bool modifier_Fournisseur(int,QString,QString,int,QString);
+
+
     QSqlQueryModel * Recherche(QString) ;
     QSqlQueryModel * Trier();
 

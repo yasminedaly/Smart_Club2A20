@@ -29,6 +29,8 @@ public :
     QSqlQueryModel * afficher_Produit();
     bool modifier_Produit(int , QString , int , float);
 
+    QSqlQueryModel * Recherche(QString id);
+    QSqlQueryModel * trier() ;
 
 private :
     int ID_Produit ;

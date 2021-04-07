@@ -133,7 +133,7 @@ QSqlQueryModel * Fournisseurs::Recherche(QString id)
    {
     QSqlQueryModel * model= new QSqlQueryModel();
 
-        QString model="Select * from fournisseurs where ID_Fournisseur like '"+id+"%' ";
+    QString model="Select * from fournisseurs where ID_Fournisseur like '"+id+"%' ";
 
     model->setHeaderData(0,Qt::Horizontal,QObject::tr("ID_Fournisseur"));
     model->setHeaderData(1,Qt::Horizontal,QObject::tr("Nom_Fournisseur"));
