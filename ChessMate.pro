@@ -1,9 +1,14 @@
-QT       += core gui
+QT       += core gui printsupport
 QT += sql
+QT       += core gui
+QT       += multimedia
+CONFIG   += c++14
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets multimedia
+
 
 CONFIG += c++
+TARGET = QtMusicPlayer
 
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings
@@ -18,16 +23,26 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     connection.cpp \
+    exportexcelobject.cpp \
     main.cpp \
     abonnes.cpp \
+    playlist.cpp \
+    qcustomplot.cpp \
     seances.cpp \
-    sub.cpp
+    sub.cpp \
+    track.cpp
 
 HEADERS += \
+      \
     abonnes.h \
     connection.h \
+    exportexcelobject.h \
+    playlist.h \
+    qcustomplot.h \
     seances.h \
-    sub.h
+    sub.h \
+    track.h \
+    utils.h
 
 FORMS += \
     abonnes.ui

@@ -90,6 +90,72 @@ bool seances::supprimer_S(int ID_salle){
      return query.exec();
 
 }
+QSqlQueryModel * seances::afficher_tri_date()
+{QSqlQueryModel * model= new QSqlQueryModel();
 
+model->setQuery("select * from seances order by Date_seance asc ");
+model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID_salle"));
+model->setHeaderData(1, Qt::Horizontal, QObject::tr("Num_salle"));
+model->setHeaderData(2, Qt::Horizontal, QObject::tr("ID_employe"));
+model->setHeaderData(3, Qt::Horizontal, QObject::tr("Capacite_salle"));
+model->setHeaderData(4, Qt::Horizontal, QObject::tr("Titre_cours"));
+model->setHeaderData(5, Qt::Horizontal, QObject::tr("Date_seance"));
+model->setHeaderData(6, Qt::Horizontal, QObject::tr("Niveau_seance"));
+
+
+
+    return model;
+}
+
+QSqlQueryModel * seances::afficher_tri_capacite()
+{QSqlQueryModel * model= new QSqlQueryModel();
+
+    model->setQuery("select * from seances order by Capacite_salle asc ");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID_salle"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("Num_salle"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("ID_employe"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("Capacite_salle"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("Titre_cours"));
+    model->setHeaderData(5, Qt::Horizontal, QObject::tr("Date_seance"));
+    model->setHeaderData(6, Qt::Horizontal, QObject::tr("Niveau_seance"));
+
+
+
+    return model;
+}
+QSqlQueryModel* seances::chercher_seance(int index,QString text)
+{
+QSqlQuery query;
+    QSqlQueryModel* model=new QSqlQueryModel();
+    if(index==0)
+   { query.prepare("SELECT * FROM seances where ID_salle like '"+text+"'");
+     query.exec();
+     model->setQuery(query);
+     model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID_salle"));
+     model->setHeaderData(1, Qt::Horizontal, QObject::tr("Num_salle"));
+     model->setHeaderData(2, Qt::Horizontal, QObject::tr("ID_employe"));
+     model->setHeaderData(3, Qt::Horizontal, QObject::tr("Capacite_salle"));
+     model->setHeaderData(4, Qt::Horizontal, QObject::tr("Titre_cours"));
+     model->setHeaderData(5, Qt::Horizontal, QObject::tr("Date_seance"));
+     model->setHeaderData(6, Qt::Horizontal, QObject::tr("Niveau_seance"));
+     }
+   if(index==1)
+      {
+       query.prepare("SELECT * FROM seances where ID_employe like '"+text+"'");
+           query.exec();
+           model->setQuery(query);
+           model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID_salle"));
+           model->setHeaderData(1, Qt::Horizontal, QObject::tr("Num_salle"));
+           model->setHeaderData(2, Qt::Horizontal, QObject::tr("ID_employe"));
+           model->setHeaderData(3, Qt::Horizontal, QObject::tr("Capacite_salle"));
+           model->setHeaderData(4, Qt::Horizontal, QObject::tr("Titre_cours"));
+           model->setHeaderData(5, Qt::Horizontal, QObject::tr("Date_seance"));
+           model->setHeaderData(6, Qt::Horizontal, QObject::tr("Niveau_seance"));
+   }
+
+
+    return model;
+
+}
 
 

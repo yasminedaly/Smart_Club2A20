@@ -28,6 +28,9 @@ public:
     QSqlQueryModel* afficher_S();
     bool modifier_S();
     bool supprimer_S(int);
+    QSqlQueryModel *afficher_tri_date ();
+    QSqlQueryModel * afficher_tri_capacite ();
+    QSqlQueryModel * chercher_seance(int,QString);
 
 
 private:
