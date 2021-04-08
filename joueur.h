@@ -2,6 +2,10 @@
 #define JOUEUR_H
 #include <QString>
 #include <QSqlQueryModel>
+#include <QPdfWriter>
+#include <QBuffer>
+#include <cstdlib>
+#include <QImage>
 
 
 class Joueur
@@ -17,6 +21,10 @@ public:
     QString getemail_joueur();
     int gettel_joueur();
     int getclassement_elo();
+    /*
+     * QByteArray  GetImage() ;
+    void  AjoutImage(QString );
+    */
 
     void setid_joueur(int);
     void setnom_joueur(QString);
@@ -31,6 +39,7 @@ public:
     bool verifierid(int);
     bool verifvidestring(QString);
     bool verifint(int);
+    bool veriftel(int);
     bool supprimer_joueur(int);
     bool modifier_joueur();
     QSqlQueryModel* chercher_joueur(int,QString);
@@ -45,6 +54,7 @@ private:
     QString email_joueur;
     int tel_joueur;
     int classement_elo;
+    // QByteArray image;
 };
 
 #endif // JOUEUR_H
