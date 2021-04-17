@@ -30,6 +30,7 @@
 #include <QtMultimedia/QSound>
 
 #include <QSystemTrayIcon>
+#include <QSequentialAnimationGroup>
 
 QT_CHARTS_USE_NAMESPACE
 namespace Ui {
@@ -94,6 +95,7 @@ private:
     Ticket  Etmpp ;
     notification n;
     QSystemTrayIcon * trayIcon;
+     QSequentialAnimationGroup* animationGroup;
 
 };
 

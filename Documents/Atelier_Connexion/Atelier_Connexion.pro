@@ -4,7 +4,7 @@
 #
 #----------------------Yosra---------------------------
 
-QT       += core gui sql printsupport charts network multimedia
+QT       += core gui sql printsupport charts network multimedia widgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -61,6 +61,9 @@ RESOURCES += \
     ressource.qrc
 
 DISTFILES += \
+    img/17402.png \
+    img/button-304224_960_720.png \
+    img/kisspng-button-icon-delete-button-png-image-5a756de9e12917.7504282715176452899223.jpg \
     img/téléchargement.png \
     sond/Click button.wav \
     sond/Click button.wav

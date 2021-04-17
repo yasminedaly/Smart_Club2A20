@@ -70,6 +70,41 @@ MainWindow::MainWindow(QWidget *parent) :
      ui->le_id_4->clear();
      ui->le_id_4->addItems(Etmp.listeEvents());
 
+     //animation button pdf
+     // Создадим группу анимации
+     animationGroup = new QSequentialAnimationGroup(this);
+
+     // Создадим анимацию свойства передвижения слева-сверху направо-сверху
+     QPropertyAnimation* leftTopToRightTop = new QPropertyAnimation(ui->PDF, "geometry");
+     leftTopToRightTop->setDuration(1000); // Длительность анимации
+     leftTopToRightTop->setStartValue(ui->PDF->geometry()); // Стартовая позиция и геометрия анимации
+     leftTopToRightTop->setEndValue(ui->PDF->geometry().translated(100, 0)); // Конечная позиция и геометрия анимации
+     animationGroup->addAnimation(leftTopToRightTop); // Добавим анимацию в группу
+
+     // Справа-сверху вниз-справа
+     QPropertyAnimation* rightTopToRightBottom = new QPropertyAnimation(ui->PDF, "geometry");
+     rightTopToRightBottom->setDuration(1000);
+     rightTopToRightBottom->setStartValue(leftTopToRightTop->endValue());
+     rightTopToRightBottom->setEndValue(leftTopToRightTop->endValue().toRect().translated(0, 100));
+     animationGroup->addAnimation(rightTopToRightBottom);
+
+     // Снизу-справа налево-вниз
+     QPropertyAnimation* rightBottomToLeftBottom = new QPropertyAnimation(ui->PDF, "geometry");
+     rightBottomToLeftBottom->setDuration(1000);
+     rightBottomToLeftBottom->setStartValue(rightTopToRightBottom->endValue());
+     rightBottomToLeftBottom->setEndValue(rightTopToRightBottom->endValue().toRect().translated(-100, 0));
+     animationGroup->addAnimation(rightBottomToLeftBottom);
+
+     // Слева-снизу наверх-слева
+     QPropertyAnimation* leftBottomToLeftTop = new QPropertyAnimation(ui->PDF, "geometry");
+     leftBottomToLeftTop->setDuration(1000);
+     leftBottomToLeftTop->setStartValue(rightBottomToLeftBottom->endValue());
+     leftBottomToLeftTop->setEndValue(rightBottomToLeftBottom->endValue().toRect().translated(0, -100));
+     animationGroup->addAnimation(leftBottomToLeftTop);
+
+     // Подключаем нажатие кнопки к слоту обработчику кнопки
+     connect(ui->PDF, &QPushButton::clicked, this, &MainWindow::on_PDF_clicked);
+
 
 
 
@@ -122,7 +157,7 @@ QSound::play(":/new/prefix1/sond/Click button.wav");
               connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)),
                       this, SLOT(iconActivated(QSystemTrayIcon::ActivationReason)));
 
-             //n.Alerte_Ajout(id,1);
+             n.Alerte_Ajout(id,1);
 
       }
           else
@@ -245,6 +280,8 @@ void MainWindow::on_trie_clicked()
 // PDF
 void MainWindow::on_PDF_clicked()
 {
+
+    animationGroup->start();
  QSound::play(":/new/prefix1/sond/Click button.wav");
  // QSound::play(":/new/prefix1/sond/632.wav");
 

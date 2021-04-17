@@ -381,7 +381,7 @@ p, li { white-space: pre-wrap; }
      <widget class="QPushButton" name="PDF">
       <property name="geometry">
        <rect>
-        <x>650</x>
+        <x>490</x>
         <y>260</y>
         <width>101</width>
         <height>31</height>
