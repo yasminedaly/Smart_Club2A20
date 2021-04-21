@@ -57,8 +57,6 @@ private slots:
 
     void on_recherche_produit_clicked();
 
-    void on_statistiques_factures_clicked();
-
     //void sendMail();
 
     //void mailSent(QString);
