@@ -32,6 +32,8 @@
 #include <QPrintPreviewDialog>
 #include<QDebug>
 #include<QValidator>
+#include "accueil.h"
+#include <QPropertyAnimation>
 
 
 
@@ -104,6 +106,23 @@ MainWindow::MainWindow(QWidget *parent) :
 
      // Подключаем нажатие кнопки к слоту обработчику кнопки
      connect(ui->PDF, &QPushButton::clicked, this, &MainWindow::on_PDF_clicked);
+
+     // fekher
+    /* animation = new QPropertyAnimation (ui ->tabevenement,"geometry" );
+                    // animation = new QPropertyAnimation (ui ->text_2,"geometry" );
+                     animation->setDuration(10000) ;
+                     animation->setStartValue(ui->label_12->geometry());
+                     animation->setEndValue(QRect(1,20,30,40)) ;
+                     animation->start() ;
+
+                     // animation2 = new QPropertyAnimation (ui ->text,"geometry" );
+                         animation2 = new QPropertyAnimation (ui ->tabevenement,"geometry" );
+                         animation2->setDuration(10000) ;
+                         animation2->setStartValue(ui->label_11->geometry());
+                         animation2->setEndValue(QRect(1,20,30,40)) ;
+                         animation2->start() ;
+                          ui->tableView->setModel(Etmp.afficher());
+                        // ui->tableView->setModel(tmpc.afficher_client());*/
 
 
 
@@ -657,4 +676,11 @@ void MainWindow::on_tableView_2_activated(const QModelIndex &index)
 
         ui->le_prix->setText("");
     }
+}
+
+void MainWindow::on_retour_clicked()
+{
+    MainWindow::close();
+    accueil * g = new accueil();
+        g->show();
 }

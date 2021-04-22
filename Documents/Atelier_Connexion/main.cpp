@@ -4,6 +4,11 @@
 #include "connection.h"
 #include"stats.h"
 #include "accueil.h"
+#include "analogclock.h"
+#include "calculator.h"
+#include "widget.h"
+
+
 
 int main(int argc, char *argv[])
 {
@@ -14,6 +19,11 @@ int main(int argc, char *argv[])
      MainWindow w;
      stats s;
      accueil g;
+     AnalogClock clock;
+     calculator h;
+       Widget q;
+
+        //clock.show();
     if(test)
     {
        // w.show();

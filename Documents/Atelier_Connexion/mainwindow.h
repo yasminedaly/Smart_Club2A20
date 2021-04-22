@@ -13,6 +13,8 @@
 #include <QCloseEvent>
 #include <QSystemTrayIcon>
 #include <QAction>
+#include <QPropertyAnimation>
+#include <accueil.h>
 
 
 #include<QtCharts/QChartView>
@@ -89,14 +91,18 @@ private slots:
 
     void on_tableView_2_activated(const QModelIndex &index);
 
+    void on_retour_clicked();
+
 private:
     Ui::MainWindow *ui;
     Evenement  Etmp ;
     Ticket  Etmpp ;
     notification n;
+    accueil a;
     QSystemTrayIcon * trayIcon;
      QSequentialAnimationGroup* animationGroup;
-
+   /*  QPropertyAnimation *animation2;
+     QPropertyAnimation *animation;*/
 };
 
 #endif // MAINWINDOW_H

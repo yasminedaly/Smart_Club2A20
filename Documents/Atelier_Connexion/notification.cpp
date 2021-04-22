@@ -21,7 +21,7 @@ void notification::Alerte_Ajout(int id,int i)
        }
        else if (i==1)
        {
-         notifyIcon->showMessage("Evenement","Un nouveau evenement avec un CIN N°"+res+" a été ajouté",QSystemTrayIcon::Information,1500);
+         notifyIcon->showMessage("Evenement","Un nouveau evenement avec l'id "+res+" a été ajouté",QSystemTrayIcon::Information,1500);
        }
 
 }
