@@ -24,6 +24,15 @@
 #include <QDateTime>
 #include <QTime>
 #include <QPropertyAnimation>
+#include <QFileDialog>
+#include <string>
+#include "getframe.h"
+
+
+using std::to_string;
+using std::string;
+
+
 
 
 
@@ -34,6 +43,27 @@ MainWindow::MainWindow(QWidget *parent) :
     ui ( new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    player = new QMediaPlayer(this);
+    videoWidget = new QVideoWidget(this);
+    layout = new QVBoxLayout();
+
+    layout->addWidget(videoWidget);
+    ui->groupBox_2->setLayout(layout);
+    player->setVideoOutput(videoWidget);
+
+    connect(player, &QMediaPlayer::durationChanged, ui->horizontalSlider, &QSlider::setMaximum);
+    connect(player, &QMediaPlayer::positionChanged, ui->horizontalSlider, &QSlider::setValue);
+    ui->directory->setIcon(QIcon(":/new/prefix1/Icons/015-folder.png"));
+
+    //this->on_horizontalSlider_2_valueChanged(0);
+
+    //Working with frames
+    vsur = new myQAbstractVideoSurface();
+    file_player.setVideoOutput(vsur);
+
+
+
     animation = new QPropertyAnimation (ui ->text,"geometry" );
    // animation = new QPropertyAnimation (ui ->text_2,"geometry" );
     animation->setDuration(10000) ;
@@ -53,7 +83,10 @@ MainWindow::MainWindow(QWidget *parent) :
     click->setMedia(QUrl("C:/Users/khaled/Desktop/click_2.mp3")) ;
 
   //  click->play() ;
+    QPixmap pis("C:/Users/khaled/Desktop/projet c++/back.jpg");
+    ui->label_12->setPixmap(pis);
 
+            //C:\Users\khaled\Desktop\projet c++
 
 
 
@@ -84,6 +117,11 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
+    delete vsur;
+    delete player;
+    delete layout;
+    delete videoWidget;
+
     delete ui;
 }
 
@@ -143,6 +181,9 @@ void MainWindow::on_pb_ajouter_clicked()
 void MainWindow::on_pushButton_sup_clicked()
 
 {
+
+     click->play();
+
     int id_commande=ui->le_id->text().toInt();
     bool test=Etmp.supprimer(id_commande);
 
@@ -166,7 +207,11 @@ void MainWindow::on_pushButton_sup_clicked()
 }
 
 void MainWindow::on_pushButton_mod_clicked()
+
+
 {
+
+     click->play();
     int id_commande=ui->le_id->text().toInt();
 
     int nb_produit=ui->le_nb->text().toInt();
@@ -200,6 +245,8 @@ void MainWindow::on_pushButton_mod_clicked()
 
 void MainWindow::on_pushButton_rch_clicked()
 {
+
+     click->play();
 
     int id_commandeAA=ui->rch_2->text().toInt();
 
@@ -237,7 +284,7 @@ void MainWindow::on_Liv_ajouter_clicked()
 
 
 
-
+ click->play();
 
     int id_l=ui->id_Liv->text().toInt();
     QString nom_l=ui->nom_liv->text() ;
@@ -297,6 +344,7 @@ if((nom_ll==true)&&(Ref_livree==true))
 
 void MainWindow::on_liv_supprimer_clicked()
 {
+     click->play();
 
     int id_l=ui->id_Liv->text().toInt();
     bool test=Etmpb.supprimer_livre(id_l);
@@ -318,6 +366,8 @@ void MainWindow::on_liv_supprimer_clicked()
 
 void MainWindow::on_Liv_modifier_clicked()
 {
+
+     click->play();
 
 
     int id_l=ui->id_Liv->text().toInt();
@@ -360,6 +410,7 @@ void MainWindow::on_pushButton_rch_livre_clicked()
 {
 
 
+     click->play();
     int id_lAA=ui->rch_livre->text().toInt();
 
         QSqlQueryModel * model= new QSqlQueryModel();
@@ -391,6 +442,8 @@ void MainWindow::on_pushButton_rch_livre_clicked()
 void MainWindow::on_tri_commande_clicked()
 
     {
+
+     click->play();
     ui->tableView_2->setModel(Etmp.tri());
       ui->tableView_2->setModel(Etmp.tri());//refresh
 
@@ -399,6 +452,8 @@ void MainWindow::on_tri_commande_clicked()
 void MainWindow::on_pushButton_tri_livre_clicked()
 
     {
+
+     click->play();
     ui->tableView_bib->setModel(Etmpb.tri_livre());
       ui->tableView_bib->setModel(Etmpb.tri_livre());
 
@@ -411,7 +466,10 @@ void MainWindow::on_Historique_clicked()
 }
 
 void MainWindow::on_pushButton_clicked()
+
 {
+
+     click->play();
     QString str;
 
      //   <img src='D:/bourguiba/ESPRIT/Second Year/Projet C++/logo.png' height='42' align='left' width='42'/>
@@ -466,6 +524,8 @@ void MainWindow::on_pushButton_clicked()
 void MainWindow::on_pushButton_3_clicked()
 {
 
+     click->play();
+
     lng="ang";
         // page biblo
         ui->l1->setText("ID BOOK");
@@ -496,6 +556,8 @@ void MainWindow::on_pushButton_2_clicked()
 
 {
 
+
+
     click->play();
   lng="fr";
 
@@ -509,15 +571,15 @@ void MainWindow::on_pushButton_2_clicked()
   ui->l7->setText("DISPONIBILITE");
   ui->Liv_ajouter2->setText("ajouter");
   ui->Liv_modifier->setText("modifier");
-  ui->Liv_modifier->setStyleSheet("QPushButton {border:none;background-color:#000000;background-position: left center;background-repeat: no-repeat;border-radius: 5px;border:1px solid transparent;color:rgb(255, 255, 255);text-align: center; border-left:4px solid #000000;}QPushButton:hover {background-color:rgb(0, 0, 128);}QPushButton:pressed { border:2px solid rgb(0, 0, 128); }");
+//  ui->Liv_modifier->setStyleSheet("QPushButton {border:none;background-color:#000000;background-position: left center;background-repeat: no-repeat;border-radius: 5px;border:1px solid transparent;color:rgb(255, 255, 255);text-align: center; border-left:4px solid #000000;}QPushButton:hover {background-color:rgb(0, 0, 128);}QPushButton:pressed { border:2px solid rgb(0, 0, 128); }");
   ui->liv_supprimer->setText("supprimer");
-  ui->liv_supprimer->setStyleSheet("QPushButton {border:none;background-color:#000000;background-position: left center;background-repeat: no-repeat;border-radius: 5px;border:1px solid transparent;color:rgb(255, 255, 255);text-align: center; border-left:4px solid #000000;}QPushButton:hover {background-color:rgb(0, 0, 128);}QPushButton:pressed { border:2px solid rgb(0, 0, 128); }");
+//  ui->liv_supprimer->setStyleSheet("QPushButton {border:none;background-color:#000000;background-position: left center;background-repeat: no-repeat;border-radius: 5px;border:1px solid transparent;color:rgb(255, 255, 255);text-align: center; border-left:4px solid #000000;}QPushButton:hover {background-color:rgb(0, 0, 128);}QPushButton:pressed { border:2px solid rgb(0, 0, 128); }");
  // ui->pushButton_rch_livre->setText("recherche");
 //  ui->pushButton_tri_livre->setText("tri");
   ui->oui_liv->setText("oui");
 
   ui->non_liv_2->setText("non");
-   ui->Liv_ajouter2->setStyleSheet("QPushButton {border:none;background-color:#000000;background-position: left center;background-repeat: no-repeat;border-radius: 5px;border:1px solid transparent;color:rgb(255, 255, 255);text-align: center; border-left:4px solid #000000;}QPushButton:hover {background-color:rgb(0, 0, 128);}QPushButton:pressed { border:2px solid rgb(0, 0, 128); }");
+  // ui->Liv_ajouter2->setStyleSheet("QPushButton {border:none;background-color:#000000;background-position: left center;background-repeat: no-repeat;border-radius: 5px;border:1px solid transparent;color:rgb(255, 255, 255);text-align: center; border-left:4px solid #000000;}QPushButton:hover {background-color:rgb(0, 0, 128);}QPushButton:pressed { border:2px solid rgb(0, 0, 128); }");
 
 }
 
@@ -553,7 +615,7 @@ void MainWindow::on_Liv_ajouter2_clicked()
 {
 
 
-
+  click->play();
     int id_l=ui->id_Liv->text().toInt();
     QString nom_l=ui->nom_liv->text() ;
     QString Ref_livre=ui->ref_liv->text() ;
@@ -625,4 +687,151 @@ void MainWindow::showtime ()
         }
         ui->digitalclock_2->setText(time_text) ;
 
+}
+
+
+
+
+void MainWindow::on_play_clicked()
+{
+
+    if (pause) {
+        ui->play->setText("Play");
+        ui->play->setIcon(QIcon(":/new/prefix1/Icons/022-video.png"));
+        pause = false;
+        player->pause();
+    }
+    else {
+        ui->play->setText("Pause");
+        ui->play->setIcon(QIcon(":/new/prefix1/Icons/023-video-1.png"));
+        pause = true;
+        player->play();
+        //This fixing not controlled video zoom
+        videoWidget->resize(videoWidget->width()+1, videoWidget->height());
+        videoWidget->resize(videoWidget->width()-1, videoWidget->height());
+    }
+    this->SetTimeLabel();
+}
+
+
+
+/*void MainWindow::on_directory_clicked()
+{
+    QString path = QFileDialog::getOpenFileName(this,"Choose videofile..","","*.mp4");
+    player->setMedia(QUrl::fromLocalFile(path));
+
+    //Working with frames
+    file_player.setMedia(QUrl::fromLocalFile(path));
+
+    connect(vsur, SIGNAL(fnSurfaceStopped(QPixmap)),
+            this, SLOT(GetFrame(QPixmap)),Qt::QueuedConnection);
+
+    connect(this, SIGNAL(fnClearPixmap()),
+            vsur, SLOT(fnClearPixmap()),Qt::QueuedConnection);
+}*/
+
+void MainWindow::GetFrame(QPixmap pix)
+{
+    pixmap = pix;
+    file_player.pause();
+}
+
+
+
+void MainWindow::SetTimeLabel()
+{
+    int seconds = static_cast<int>(player->duration()/1000);
+    int minutes = 0, hours = 0;
+    string stringData;
+
+    if ((minutes = seconds / 60) > 0) seconds -= minutes * 60;
+        if ((hours = minutes / 60) > 0)  minutes -= hours * 60;
+
+    if (hours > 9) stringData = to_string(hours) + ":";
+    else stringData = to_string(hours) + "0:";
+
+    if (minutes > 9) stringData += to_string(minutes) + ":";
+    else stringData += "0" + to_string(minutes) + ":";
+
+    if (seconds > 9) stringData += to_string(seconds);
+    else stringData += "0" + to_string(seconds);
+
+    ui->endTime->setText(QString::fromStdString(stringData));
+
+}
+
+void MainWindow::keyPressEvent(QKeyEvent *ev)
+{
+    if (ev->key() == Qt::Key_U)
+    {
+       // emit fnClearPixmap();
+        file_player.setPosition(player->position());
+        file_player.setMuted(true);
+        file_player.play();
+
+        QMessageBox::warning(this,"Info", "Please, set the directory (save field is commented)");
+//        QString imagePath = "/Users/kirill/Desktop/BMP test/image"+ QString::fromStdString(to_string(fileCounter)) +".bmp";
+//        while (QFile::exists(imagePath)) {
+//           fileCounter++;
+//           imagePath = "/Users/kirill/Desktop/BMP test/image"+ QString::fromStdString(to_string(fileCounter++)) +".bmp";
+//        }
+//        QMessageBox::information(this,"Info", "Please, set the screenshot directory (save field is commented)");
+//        pixmap.save(imagePath);
+    }
+}
+
+void MainWindow::on_directory_clicked()
+{
+    QString path = QFileDialog::getOpenFileName(this,"Choose videofile..","","*.mp4");
+        player->setMedia(QUrl::fromLocalFile(path));
+
+        //Working with frames
+        file_player.setMedia(QUrl::fromLocalFile(path));
+
+        connect(vsur, SIGNAL(fnSurfaceStopped(QPixmap)),
+                this, SLOT(GetFrame(QPixmap)),Qt::QueuedConnection);
+
+        connect(this, SIGNAL(fnClearPixmap()),
+                vsur, SLOT(fnClearPixmap()),Qt::QueuedConnection);
+
+
+
+}
+
+void MainWindow::on_horizontalSlider_sliderMoved(int position)
+{
+    player->setPosition(position);
+
+}
+
+
+void MainWindow::on_comboBox_2_activated(int index)
+{
+    qreal rate = 0;
+    switch (index) {
+        case 0:
+        {
+            rate = 1;
+            break;
+        }
+    case 1:
+        {
+            rate = 0.5;
+            break;
+        }
+    case 2:
+        {
+            rate = 2;
+            break;
+        }
+    }
+        player->setPlaybackRate(rate);
+}
+
+
+
+
+void MainWindow::on_horizontalSlider_2_valueChanged(int value)
+{
+     player->setVolume(value);
 }

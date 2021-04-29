@@ -4,6 +4,8 @@
 #include "connection.h"
 #include "commande.h"
 #include "bibliotheques.h"
+#include "mediaplayer.h"
+
 #include <QString>
 
 

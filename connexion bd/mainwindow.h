@@ -13,6 +13,16 @@
 #include <QMediaPlayer>
 #include <QPropertyAnimation>
 
+#include <QMediaPlayer>
+#include <QVideoWidget>
+#include <QMessageBox>
+#include <QKeyEvent>
+#include <QLayout>
+#include <QSlider>
+
+//Catch frame library
+#include "getframe.h"
+
 namespace Ui {
 class MainWindow;
 }
@@ -29,6 +39,10 @@ public:
 
 private slots:
 
+
+    void on_horizontalSlider_2_valueChanged(int value);
+
+    void on_comboBox_activated(int index);
 
 
 
@@ -79,7 +93,36 @@ private slots:
 
     void showtime () ;
 
+    void on_play_clicked();
+
+    //Working with frames
+    void GetFrame(QPixmap pix);
+
+    //Key Work
+    void keyPressEvent(QKeyEvent *ev);
+
+    void on_horizontalSlider_2_actionTriggered(int action);
+
+    void on_comboBox_activated(const QString &arg1);
+
+    void on_endTime_linkActivated(const QString &link);
+
+    void on_endTime_linkHovered(const QString &link);
+
+    void fnClearPixmap();
+
+
+    void on_comboBox_2_activated(const QString &arg1);
+
+    void on_directory_clicked();
+
+    void on_horizontalSlider_sliderMoved(int position);
+
+    void on_comboBox_2_activated(int index);
+
 private:
+    void SetTimeLabel();
+
    Ui::MainWindow *ui;
    QPropertyAnimation *animation ;
      QPropertyAnimation *animation2 ;
@@ -90,6 +133,19 @@ private:
      QMediaPlayer * erreur = new QMediaPlayer ;
      QString lng="fr";
      QMediaPlayer *click ;
+
+
+     QMediaPlayer *player;
+     QVideoWidget *videoWidget;
+     QVBoxLayout *layout;
+     QSlider *slider;
+     bool pause = false;
+
+     //Working with frames
+     QMediaPlayer file_player;
+     myQAbstractVideoSurface *vsur;
+     QPixmap pixmap;
+     int fileCounter = 0;
 
 
 };

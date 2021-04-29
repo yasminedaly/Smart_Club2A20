@@ -190,4 +190,181 @@ QSqlQueryModel * commandeh::afficherhis()
  }
 
 
+ /*QSqlQueryModel *commande::Product_type_pro_list()
+ {
+
+         QSqlQueryModel * model= new QSqlQueryModel();
+
+         model->setQuery("SELECT TYPE FROM EV");
+
+
+         return model;*
+
+
+ }*/
+
+ /*QGraphicsScene *commande::StatPromo_Product_type()
+ {
+
+
+     //Calculer la récurcivité de chaque type de produit
+    commande tempcc;
+    QString test;
+
+     int max=0;
+     int sportif=0;
+     int caritatif=0;
+     int culturel=0;
+     int artistique=0;
+
+
+
+
+     QSqlQueryModel * model=tempcc.Product_type_pro_list();
+
+
+     max=model->rowCount();
+
+     for (int i=0;i<model->rowCount();i++)
+     {
+         test=model->record(i).value(0).toString();
+
+
+
+
+
+         if(test=="sportif")
+         {
+             sportif++;
+         }
+         else if(test=="caritatif")
+         {
+             caritatif++;
+
+         }
+         else if(test=="culturel")
+         {
+             culturel++;
+
+         }
+         else if(test=="artistique")
+         {
+             artistique++;
+         }
+
+
+   }
+
+
+
+
+
+ //Génrer la Statistique sur La QGraphiqueView
+
+
+     QGraphicsScene *  scene = new QGraphicsScene();
+
+     QGraphicsEllipseItem *ellipse1;
+     QGraphicsEllipseItem *ellipse2;
+     QGraphicsEllipseItem *ellipse3;
+     QGraphicsEllipseItem *ellipse4;
+
+
+
+     QGraphicsTextItem *tex1;
+     QGraphicsTextItem *tex2;
+     QGraphicsTextItem *tex3;
+     QGraphicsTextItem *tex4;
+
+
+     QGraphicsRectItem *rec1;
+     QGraphicsRectItem *rec2;
+     QGraphicsRectItem *rec3;
+     QGraphicsRectItem *rec4;
+
+
+
+
+     QBrush greenBrush(Qt::green);
+     QBrush redBrush(Qt::red);
+     QBrush yellowBrush(Qt::yellow);
+     QBrush bleuBrush(Qt::blue);
+     QPen outlinePen(Qt::black);
+     outlinePen.setWidth(1);
+
+     int x=200;
+     int y=100;
+     int w=250;
+     int h=250;
+
+
+     ellipse1 = scene->addEllipse(x, y, w, h);
+     ellipse1->setBrush(greenBrush);
+     ellipse1->setStartAngle(((sportif*360)/max)*16);
+
+
+
+
+     ellipse2 = scene->addEllipse(x, y, w, h);
+     ellipse2->setBrush(redBrush);
+     ellipse1->setStartAngle(((sportif*360)/max)*16);
+     ellipse2->setSpanAngle(((caritatif*360)/max)*16);
+
+
+     ellipse3 = scene->addEllipse(x, y, w, h);
+     ellipse3->setBrush(yellowBrush);
+     ellipse3->setStartAngle((((sportif+caritatif)*360)/max)*16);
+     ellipse3->setSpanAngle(((culturel*360)/max)*16);
+
+
+
+     ellipse4 = scene->addEllipse(x, y, w, h);
+     ellipse4->setBrush(bleuBrush);
+     ellipse4->setStartAngle((((sportif+caritatif+culturel)*360)/max)*16);
+     ellipse4->setSpanAngle(((artistique*360)/max)*16);
+
+
+
+
+
+
+     float sportif_pourcentage=((((sportif*360)/max))*100)/360;
+     float caritatif_pourcentage=((((caritatif*360)/max))*100)/360;
+     float culturel_pourcentage=((((culturel*360)/max))*100)/360;
+     float artistique_pourcentage=((((artistique*360)/max))*100)/360;
+
+
+
+
+
+
+
+
+
+     QString sportif_convert=QString::number( sportif_pourcentage);
+     QString caritatif_convert=QString::number(caritatif_pourcentage);
+     QString culturel_convert=QString::number(culturel_pourcentage);
+     QString artistique_convert=QString::number(artistique_pourcentage);
+
+
+
+     rec1 = scene->addRect(-20, 2, 20, 20, outlinePen, greenBrush);
+     rec2 = scene->addRect(-20, 42, 20, 20, outlinePen, redBrush);
+     rec3 = scene->addRect(-20, 80, 20, 20, outlinePen, yellowBrush);
+     rec4 = scene->addRect(-20, 120, 20, 20, outlinePen, bleuBrush);
+
+
+
+     tex1 = scene->addText("Event sportif : "+sportif_convert+"%", QFont("Arial", 11));
+     tex2 = scene->addText("\n\nEvent caritatif : "+caritatif_convert+"%", QFont("Arial", 11) );
+     tex3 = scene->addText("\n\n\n\nEvent culturel: "+culturel_convert+"%", QFont("Arial", 11) );
+     tex4 = scene->addText("\n\n\n\n\n\nEvent artistique : "+artistique_convert+"%", QFont("Arial", 11) );
+
+
+
+
+     return scene;
+
+
+ }*/
 

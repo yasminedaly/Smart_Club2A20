@@ -9,6 +9,11 @@ QT       += core gui network charts
 QT       += texttospeech
 QT       += printsupport
 QT       += multimedia
+QT       += core gui network charts
+QT       += printsupport multimedia texttospeech
+QT       += core gui multimediawidgets multimedia
+
+
 
 
 
@@ -33,6 +38,7 @@ CONFIG += c++11
 SOURCES += \
     bibliotheques.cpp \
     commande.cpp \
+    getframe.cpp \
         main.cpp \
         mainwindow.cpp \
     connection.cpp
@@ -40,6 +46,7 @@ SOURCES += \
 HEADERS += \
     bibliotheques.h \
     commande.h \
+    getframe.h \
         mainwindow.h \
     connection.h
 

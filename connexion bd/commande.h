@@ -4,6 +4,11 @@
 #include <QString>
 #include <QSqlQuery>
 #include <QSqlQueryModel>
+#include<QPaintEvent>
+#include <QGraphicsScene>
+#include <QGraphicsView>
+#include <QGraphicsItem>
+#include<QSqlRecord>
 
 
 
@@ -32,6 +37,11 @@ public:
   bool ajouter () ;
   QSqlQueryModel* afficher ();
   QSqlQueryModel * tri() ;
+ /* QGraphicsScene *StatPromo_Product_type();
+  QGraphicsScene *StatPromo_discount();
+  QSqlQueryModel *Product_type_pro_list();*/
+
+
   //QSqlQueryModel * recherche(int id_commandeA);
 
 
