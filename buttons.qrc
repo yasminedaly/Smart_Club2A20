@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>buttons/play.png</file>
+        <file>buttons/stop.png</file>
+        <file>buttons/kiss_fm.png</file>
+        <file>buttons/rathumakara.png</file>
+        <file>buttons/siyatha.png</file>
+        <file>buttons/neth.png</file>
+        <file>buttons/rhythm_world.png</file>
+        <file>buttons/lakhanda.png</file>
+        <file>buttons/icon.png</file>
+    </qresource>
+</RCC>
