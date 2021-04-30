@@ -4,14 +4,11 @@
 #include <QSqlQuery>
 #include <QSqlQueryModel>
 
-
 class Produits
 {
 public :
     Produits();
     Produits(int , QString , int , float);
-
-
     void Set_iD_Produit(int ID_Produit);
     void Set_Nom_Produit(QString Nom_Produit);
     void Set_Quantite_Produit(int Quantite_Produit);
@@ -24,13 +21,25 @@ public :
     float Get_Prix_Produit() ;
 
 
+    bool Verifier_ID(int);
+    bool Verifier_QString_Vide(QString);
+    bool Verifier_Int(int);
+
+    bool incrementer_nbr(int ID_Produit , int Quantite_Produit ) ;
     bool ajouter_Produit();
     bool supprimer_Produit(int);
     QSqlQueryModel * afficher_Produit();
     bool modifier_Produit(int , QString , int , float);
 
-    QSqlQueryModel * Recherche(QString id);
+    int PK_Check(QString id_Prod);
+
+    QSqlQueryModel * Recherche_ID(QString id);
+    QSqlQueryModel * Recherche_Nom(QString Nom);
+    QSqlQueryModel * Recherche_Quantite(QString Quantite);
+    QSqlQueryModel * Recherche_Prix(QString Prix);
     QSqlQueryModel * trier() ;
+    QStringList listeProduits();
+
 
 private :
     int ID_Produit ;

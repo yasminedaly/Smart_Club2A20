@@ -1,0 +1,43 @@
+<RCC>
+    <qresource prefix="/sounds">
+        <file>fail.mp3</file>
+        <file>click.mp3</file>
+        <file>fail.wav</file>
+        <file>successfully.mp3</file>
+        <file>successfully.wav</file>
+    </qresource>
+    <qresource prefix="/ressources_img">
+        <file>icon_non_payment.png</file>
+        <file>slot.png</file>
+        <file>pdficon.png</file>
+        <file>for_stat_factures.png</file>
+        <file>print_factures.png</file>
+        <file>G_Fournisseurs_Images_/about.png</file>
+        <file>G_Fournisseurs_Images_/copy.jpg</file>
+        <file>G_Fournisseurs_Images_/copy.png</file>
+        <file>G_Fournisseurs_Images_/cut.png</file>
+        <file>G_Fournisseurs_Images_/open.png</file>
+        <file>G_Fournisseurs_Images_/paste.png</file>
+        <file>G_Fournisseurs_Images_/Redo.png</file>
+        <file>G_Fournisseurs_Images_/save.png</file>
+        <file>G_Fournisseurs_Images_/Saveas.png</file>
+        <file>G_Fournisseurs_Images_/undo-.png</file>
+        <file>G_Fournisseurs_Images_/update_icon_facture.png</file>
+        <file>G_Fournisseurs_Images_/Font.png</file>
+        <file>G_Fournisseurs_Images_/color.png</file>
+        <file>G_Fournisseurs_Images_/print.png</file>
+        <file>G_Fournisseurs_Images_/new_file.png</file>
+        <file>G_Fournisseurs_Images_/icon notepad/iconfinder_063_Undo_183192.png</file>
+        <file>G_Fournisseurs_Images_/icon notepad/iconfinder_Cancel_1493282.png</file>
+        <file>G_Fournisseurs_Images_/icon notepad/iconfinder_content-cut_326596.png</file>
+        <file>G_Fournisseurs_Images_/icon notepad/iconfinder_content-paste_326599.png</file>
+        <file>G_Fournisseurs_Images_/icon notepad/iconfinder_document-open_118911.png</file>
+        <file>G_Fournisseurs_Images_/icon notepad/iconfinder_editor-redo-arrow-reload-glyph_763333.png</file>
+        <file>G_Fournisseurs_Images_/icon notepad/iconfinder_floppy_285657.png</file>
+        <file>G_Fournisseurs_Images_/icon notepad/iconfinder_icon-2-mail-envelope-open_314274.png</file>
+        <file>G_Fournisseurs_Images_/icon notepad/iconfinder_icon-ios7-copy_211733.png</file>
+        <file>G_Fournisseurs_Images_/icon notepad/iconfinder_image_file_2639838.png</file>
+        <file>G_Fournisseurs_Images_/English-icon.png</file>
+        <file>G_Fournisseurs_Images_/french icon.png</file>
+    </qresource>
+</RCC>
