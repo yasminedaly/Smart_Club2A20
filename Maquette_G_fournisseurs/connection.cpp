@@ -11,8 +11,7 @@ bool Connection::createconnect()
     QSqlDatabase db = QSqlDatabase::addDatabase("QODBC");
     db.setDatabaseName("Projet_2A");
     db.setUserName("arij");
-    db.setPassword("s");
-
+    db.setPassword("arij");
 
         if (db.open())
             test=true;
