@@ -1,0 +1,98 @@
+﻿1
+2
+Combien de cases y-a-t’il sur un échiquier ?
+50 cases
+64 cases
+100 cases
+90 cases
+2
+1
+Lorsqu’on s’assoit devant un échiquier, il y a en bas à droite:
+Une case blanche
+Une case noire
+ Peu importe
+-
+3
+2
+Au début de la partie, chaque joueur dispose de:
+14 pièces
+16 pièces
+18 pièces
+20 pièces
+4
+3
+Une pièce peut sauter au-dessus d’une autre pièce:
+ Jamais
+ Toujours
+ Seul la Cavalier peut sauter au-dessus des autres pièces
+ -
+5
+4
+Quelle pièce se déplace comme une Tour et un Fou ?
+ Le Cavalier
+ Le pion
+ Le Roi
+ La Dame
+6
+2
+Un pion blanc arrive au bord de l’échiquier. Les Blancs voudraient le promouvoir en Dame mais ils ont encore leur Dame en jeu ?
+a)     „ Ils ne peuvent pas promouvoir le pion en Dame et doivent le promouvoir en une autre pièce”
+b)    „Ils peuvent le promouvoir en Dame et se retrouver avec deux Dames sur l’échiquier”
+-
+-
+7
+3
+Une pièce peut sauter au-dessus d’une autre pièce
+a)   Jamais
+b)    Toujours
+c)    Seul la Cavalier peut sauter au-dessus des autres pièces
+
+8
+2
+Peut-on prendre le Roi de l’adversaire ?
+a)    oui
+b)   non
+
+
+9
+1
+ Qui commence la partie ?
+a)    Toujours les Blancs
+b)    Toujours les Noirs
+c)   Comme le veulent les deux joueurs
+
+10
+1
+Lorsqu’on effectue le roque, faut-il?
+Bouger d’abord le Roi puis la Tour
+Bouger d’abord la Tour puis le Roi
+Déplacer les deux pièces en même temps en utilisant les deux mains
+
+11
+2
+Si un Roi bouge puis revient sur sa case initiale?
+Il peut à nouveau roquer
+Il ne peut plus roquer
+
+
+12
+1
+Si un Roi a été en échec mais n’est à présent plus en échec?
+Il peut à nouveau roquer
+Il ne peut plus roquer
+
+
+13
+2
+Que se passe-t-il lorsqu’un pion arrive au bord opposé de l’échiquier ?
+Rien, il reste là jusqu’à la fin de la partie
+Il doit être promu tout de suite en une Dame, une Tour, un Fou ou un Cavalier
+Il doit être promu tout de suite en une Dame
+Il sera promu au coup suivant
+14
+3
+Sur un échiquier dont les cases sont numérotées, les pièces blanches occupent au début de la partie?
+Les colonnes a et b
+Les colonnes g et h
+Les rangées 1 et 2
+Les rangées 7 et 8
