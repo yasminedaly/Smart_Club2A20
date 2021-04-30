@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+#include "g_fournisseurs.h"
 
 #include <QApplication>
 
@@ -6,21 +6,21 @@
 #include "factures.h"
 #include "produits.h"
 #include "connection.h"
-
+#include<QDate>
 #include <QDebug>
 #include <QMessageBox>
 
 
-
-
-
 int main(int argc, char *argv[])
 {
+    qputenv("QT_SCALE_FACTOR", QByteArray("1"));
     QApplication a(argc, argv);
-    MainWindow w;
+
 
     Connection c;
     bool test=c.createconnect();
+    G_Fournisseurs w;
+
     if(test)
     {
         w.show();
@@ -35,4 +35,3 @@ int main(int argc, char *argv[])
     w.show();
     return a.exec();
 }
-
