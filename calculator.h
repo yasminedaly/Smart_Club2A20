@@ -4,7 +4,10 @@
 #include <QMainWindow>
 #include <QAbstractButton>
 #include <QKeyEvent>
+<<<<<<< Updated upstream:Desktop/Atelier_Connexion_quiz/calculator.h
 
+=======
+>>>>>>> Stashed changes:calculator.h
 
 namespace Ui {
 class calculator;
