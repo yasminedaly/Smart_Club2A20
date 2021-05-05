@@ -3,15 +3,14 @@
 #include <QSqlDatabase>
 #include <QSqlError>
 #include <QSqlQuery>
-//***************yosra**************
+
 class Connection
 {
-private:
-   QSqlDatabase db;
 public:
     Connection();
-    bool createconnection();
-    void closeconnection();
+    bool createconnect();
+
+
 };
 
 #endif // CONNECTION_H
