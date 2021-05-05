@@ -17,7 +17,7 @@
 #include <QSortFilterProxyModel>
 #include <QTextDocument>
 #include <QPropertyAnimation>
-#include "audioplayer.h"
+//#include "audioplayer.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class GestionRH; }
@@ -34,9 +34,9 @@ public:
 private slots:
     void on_pushButtonAjouterEmploye_clicked();
 
-    void on_pushButtonVider_clicked();
+    //void on_pushButtonVider_clicked();
 
-    void on_pushButtonMenu_clicked();
+    //void on_pushButtonMenu_clicked();
 
     void on_pushButtonModifier_clicked();
 
@@ -44,9 +44,9 @@ private slots:
 
     void on_pushButtonRechercher_clicked();
 
-    void on_pushButtonStats_clicked();
+    //void on_pushButtonStats_clicked();
 
-    void on_pushButtonExportPDF_clicked();
+    //void on_pushButtonExportPDF_clicked();
 
     void on_pushButtonPDF_2_clicked();
 
@@ -62,18 +62,20 @@ private slots:
 
     void on_pushButtonStatistiques_clicked();
 
-    void on_pushButtonRechercherConge_clicked();
+    //void on_pushButtonRechercherConge_clicked();
 
-    void on_lineEditMail_cursorPositionChanged(int arg1, int arg2);
+   // void on_lineEditMail_cursorPositionChanged(int arg1, int arg2);
 
     void on_clock_clicked();
 
     void on_clock_2_clicked();
 
+    void on_ajouter_2_clicked();
+
 private:
     Ui::GestionRH *ui;
     employe tmpemploye;
-    AudioPlayer* audio;
+    //AudioPlayer* audio;
      //  conge tmpconge;
        QRegExp mail_regex;
        QRegExp nom_regex,tel_regex,salaire_regex, id_regex;
