@@ -3,7 +3,6 @@
 #include <QtDebug>
 #include <QVariant>
 
-
 int ExportExcelObject::export2Excel()
 {
     if(fieldList.size() <= 0)
@@ -56,6 +55,8 @@ int ExportExcelObject::export2Excel()
         return -4;
     }
 
+
+
     //add all rows
     sSql = QString("INSERT INTO [%1] (").arg(sheetName);
     for (int i = 0; i < fieldList.size(); i++)
@@ -93,4 +94,5 @@ int ExportExcelObject::export2Excel()
 
     emit exportedRowCount(r);
 
-    return iRet;}
+    return iRet;
+}
